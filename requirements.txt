@@ -1,0 +1,14 @@
+requests==2.31.0
+BeautifulSoup4==4.11.1
+pandas==1.4.4
+pypdf==3.17.3
+numpy==1.26.2
+langchain==0.0.351
+pypdf==3.17.4
+weaviate-client==3.*
+chromadb==0.4.21
+# googlesearch-python==1.2.3
+# faiss-cpu==1.7.4
+torch==2.1.2
+#pip install git+https://github.com/huggingface/transformers
+# git clone git@hf.co:NousResearch/Yarn-Mistral-7b-128k
