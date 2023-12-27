@@ -76,31 +76,28 @@ def batch_download():
 #         create_folder(symbol)
         
 
-def write_output(symbol,text_output,portion, header = False, list_type = False):
+def write_output(symbol,text_output,
+                 portion=["ESG_approach","ESG_approach_outline", "ESG_overview", "Company_info"], 
+                 header = False, list_type = False, title = False):
     file_path = f"output/{symbol}/{portion}.txt"
     if list_type:
         with open(file_path, 'a') as file:
-            [file.write(item) for item in text_output]
+            [file.write(f"{item} /n ") for item in text_output]
+            print(f"/n {symbol} list in text_output saved into {file_path} /n")
     else:
         with open(file_path, 'a') as file:
-            file.write(text_output)
+            file.write(f"{text_output} /n ")
         if header:
             print(f"/n {symbol} header, {text_output}, saved into {file_path} /n")
+        if title:
+            print(f"/n {symbol} company name saved into {file_path} /n")
         else:
             print(f"/n {symbol} output saved into {file_path} /n")
 
-def get_ls_outline(symbol,file_name):
-    file_path = f"output/{symbol}/{file_name}.txt"
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            content = file.read()
-            # Use regex to find bullet points
-            bullet_points = re.findall(r'\d+\.\s(.*?)\n', content)
-            return bullet_points
-    except FileNotFoundError:
-        print(f"File '{file_path}' not found.")
-        return None
-
+def write_test_output(symbol, text_output, what_output):
+    file_path = f"output/{symbol}/{what_output}.txt"
+    with open(file_path, 'a') as file:
+            file.write(f"{text_output} /n ")
 
 
 ##############################################################################################################################   
