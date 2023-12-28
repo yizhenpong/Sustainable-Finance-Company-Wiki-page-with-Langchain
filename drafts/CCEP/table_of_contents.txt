@@ -1,0 +1,255 @@
+ Table of Contents:
+
+1. Introduction
+1.1. Refresh the World. Make a Difference. (Cover Page)
+2. The Coca-Cola Company 2022 Business & Sustainability Report
+2.1. Contents
+2.1.1. CEO Message
+2.1.2. Executive Summary
+2.2. Portfolio: Beverages for All
+2.2.1. Agriculture Portfolio
+2.2.2. Data
+2.3. Sustainability Frameworks
+2.3.1. Water Leadership
+2.3.2. Packaging
+2.3.3. Climate
+2.4. People & Communities
+2.5. Our Company
+2.6. Chairman & CEO Message (Page 2)
+2.7. Scope of this Report
+3. Great Brands, Bold Experimentation
+3.1. Innovation in Beverages
+3.1.1. New Beverage Launches
+3.1.2. Digital-first Engagement with Consumers
+3.1.3. Partnerships and Technology
+4. Sustainability is Core to Our Business Strategy
+4.1. Water Security
+5. Conclusion
+
+Please note that the sections in bold indicate new information not included in the initial document. The rest of the table of contents represents the existing structure of the given document. Table of Contents:
+
+1. [CEO Message] (Page 2)
+2. Executive Summary (Page 6)
+3. Contents (Pages 6-72)
+    * Agriculture Portfolio (Page 47)
+        + Sustainable Agriculture (Page 47)
+    * Packaging Frameworks (Page 36)
+        + World Without Waste (Page 36)
+    * Water Operations (Page 24)
+        + Water Leadership (Page 24)
+    * Climate (Page 43)
+    * People & Communities (Page 51)
+    * Our Company (Page 12)
+        - At a Glance (Page 13)
+        - How We Operate (Page 14)
+            * Innovation (Page 15)
+        - Financial Highlights (Page 17)
+        - Governance & Management (Page 18)
+        - Priority Topics (Page 21)
+            * Stakeholder Engagement & Partnerships (Page 22)
+4. Scope of this Report (Page 69)
+5. CEO Message (Page 2)
+    1. Great Brands, Bold Experimentation (Page 2-3)
+        * New Beverages and Marketing Transformation (Page 2)
+        * Innovations: Coca-Cola Creations & Sprite Limelight (Page 2-3)
+    2. Sustainability is Core to Our Business Strategy (Page 2)
+        * Water Security Strategy (Page 2-3)
+6. Financial and Portfolio Data (Page 71)
+    1. Packaging (Page 76)
+    2. Water (Page 77)
+    3. Greenhouse Gas Emissions & Waste (Page 78)
+7. Workplace, Safety & Giving Back (Page 80)
+    1. Human Rights & Agriculture (Page 83)
+8. Definitions of Priority Topics (Page 84)
+9. Assurance Statements (Page 86)
+10. Reporting Frameworks & SDGs (Page 87)
+    1. Human Rights (Page 52)
+    2. Safety & Health (Page 55)
+    3. Diversity, Equity & Inclusion (Page 56)
+    4. Giving Back to Our Communities (Page 60)
+    5. Economic Empowerment (Page 62)
+11. Operations Highlights (Page 63)
+    1. Asia Pacific (Page 64)
+    2. Europe, Middle East & Africa (Page 65)
+    3. Latin America (Page 66)
+    4. North America (Page 67)
+    5. Global Ventures/Bottling Investments Group (Page 68) Table of Contents:
+
+I. Introduction
+1. Document: Refresh the World. Make a Difference. (Page 0)
+
+II. The Coca-Cola Company 2022 Business & Sustainability Report
+1. CEO Message
+2. Executive Summary
+3. Contents
+
+III. Contents
+1. Agriculture Portfolio
+2. Data
+3. Packaging Frameworks
+4. Water Operations
+5. Climate
+6. People
+7. Our Company
+8. Sustainable Agriculture (Page 47)
+9. Chairman & CEO Message (Page 3)
+10. Board of Directors (Page 5)
+
+IV. Our Company
+1. At a Glance
+2. How We Operate
+3. Innovation
+4. Financial Highlights
+5. Governance & Management
+6. Priority Topics
+7. Stakeholder Engagement & Partnerships
+
+V. Portfolio: Beverages for All
+1. Water Leadership (Page 24)
+2. Packaging: World Without Waste (Page 36)
+3. People & Communities
+4. Climate (Page 43)
+5. About This Report (Page 69)
+6. Data Appendix (Page 70)
+
+VI. Financial and Portfolio Data
+1. Packaging (Page 76)
+2. Water (Page 77)
+3. Greenhouse Gas Emissions & Waste (Page 78)
+4. Workplace, Safety & Giving Back (Page 80)
+5. Human Rights & Agriculture (Page 83)
+
+VII. Reporting Frameworks & SDGs (Page 87)
+1. Human Rights (Page 52)
+2. Safety & Health (Page 55)
+3. Diversity, Equity & Inclusion (Page 56)
+4. Giving Back to Our Communities (Page 60)
+5. Economic Empowerment (Page 62)
+
+VIII. Operations Highlights (Page 63)
+1. Asia Pacific
+2. Europe, Middle East & Africa
+3. Latin America
+4. North America
+5. Global Ventures/Bottling Investments Group
+
+IX. Scope of This Report (Page 69) Based on the given content, it appears that the table of contents for the document is located at the beginning of each document instance. Here's where you can find it in each Document object:
+
+1. Document(page_content='2 THE COCA-COLA COMPANY 2022 BUSINESS & SUSTAINABILITY REPORT\nCONTENTS...', metadata={'source': 'data/sustainability_reports/CCEP.pdf', 'page': 0})
+2. Document(page_content='CEO MESSAGE \nEXECUTIVE SUMMARY \nCONTENTS...', metadata={'source': 'data/sustainability_reports/CCEP.pdf', 'page': 1})
+
+So, you can access the table of contents by looking at the 'page\_content' field of these Document objects. The table of contents for the document can be found in the first document with the metadata 'source': 'data/sustainability_reports/CCEP.pdf' and 'page': 1. Here is a summary of the table of contents:
+
+* CEO Message
+* Executive Summary
+* Contents
+* Agriculture Portfolio
+* Data Appendix
+* Packaging Frameworks
+* Water Operations
+* Climate
+* People & Communities
+* Our Company
+* Sustainable Agriculture (page 47)
+* Chairman & CEO Message (page 3)
+* Board of Directors (page 5)
+* Executive Summary (page 6)
+* Our Company (starts on page 12)
+* At a Glance
+* How We Operate
+* Innovation
+* Financial Highlights
+* Governance & Management
+* Priority Topics
+* Stakeholder Engagement & Partnerships
+
+You can access the specific document using its index in the list above, for example, `Document(page_content="Executive Summary", metadata={'source': 'data/sustainability_reports/CCEP.pdf', 'page': 6})` will return the document with the executive summary. Table of Contents:
+
+CEO Message
+-
+Executive Summary
+-
+Contents
+-
+
+AGriculture Portfolio Data
+-
+Sustainable Agriculture 47
+
+Chairman & CEO Message 3
+-
+Board of Directors 5
+
+Executive Summary 6
+-
+Our Company
+-
+At a Glance 13
+-
+How We Operate 14
+-
+Innovation 15
+-
+Financial Highlights 17
+-
+Governance & Management 18
+-
+Priority Topics 21
+-
+Stakeholder Engagement & Partnerships 22
+
+Portfolio: Beverages for All
+-
+Water Leadership 24
+-
+Packaging: World Without Waste 36
+
+People & Communities 51
+-
+Climate 43
+
+About This Report 69
+-
+Data Appendix 70
+-
+Financial and Portfolio Data 71
+-
+Packaging 76
+-
+Water 77
+-
+Greenhouse Gas Emissions & Waste 78
+
+Workplace, Safety & Giving Back 80
+-
+Human Rights & Agriculture 83
+-
+Definitions of Priority Topics 84
+-
+Assurance Statements 86
+
+Reporting Frameworks & SDGs 87
+-
+Human Rights 52
+-
+Safety & Health 55
+-
+Diversity, Equity & Inclusion 56
+-
+Giving Back to Our Communities 60
+-
+Economic Empowerment 62
+
+Operations Highlights 63
+-
+Asia Pacific 64
+-
+Europe, Middle East & Africa 65
+-
+Latin America 66
+-
+North America 67
+-
+Global Ventures/Bottling Investments Group 68
+
+Scope of This Report. 69
