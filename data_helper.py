@@ -53,8 +53,8 @@ def download_pdf(url, symbol):
 def get_SR_file_path(symbol):
     return f"data/sustainability_reports/{symbol}.pdf"
 
-def create_folder(symbol):
-    folder_name = f"output/{symbol}"
+def create_folder(symbol,main_f_path=["output_base", "output_ToC", "data/sustainability_reports"]):
+    folder_name = f"{main_f_path}/{symbol}"
     # path = os.path.join("output", symbol) 
     try:
         # Create a folder with the specified name
@@ -64,22 +64,24 @@ def create_folder(symbol):
         print(f"Folder '{folder_name}' already exists in output folder.")
 
 def batch_download():
-    for index, row in df.iloc[1:, :].iterrows():  # Skip the header row
+    for index, row in df.iloc[:, :].iterrows():
         symbol = row['Symbol']
         url = row['Sustainability_report_link']
         download_pdf(url, symbol)
-        create_folder(symbol)
 
-# def batch_create_output_folder():
-#     for index, row in df.iloc[:, :].iterrows():  # Skip the header row
-#         symbol = row['Symbol']
-#         create_folder(symbol)
+def batch_create_output_folder(main_f_path):
+    for index, row in df.iloc[:, :].iterrows():  # Skip the header row
+        symbol = row['Symbol']
+        create_folder(symbol,main_f_path)
         
 
 def write_output(symbol,text_output,
-                 portion=["ESG_approach","ESG_approach_outline", "ESG_overview", "Company_info"], 
-                 header = False, list_type = False, title = False):
-    file_path = f"output/{symbol}/{portion}.txt"
+                 portion=["ESG_approach","ESG_approach_outline", "ESG_overview", "Company_info", "TableOfContents"], 
+                 header = False, list_type = False, title = False, ToC = False):
+    if ToC:
+        file_path = f"output_ToC/{symbol}/{portion}.txt"
+    if not ToC:
+        file_path = f"output_base/{symbol}/{portion}.txt"
     if list_type:
         with open(file_path, 'a') as file:
             [file.write(f"{item} /n ") for item in text_output]
@@ -94,10 +96,6 @@ def write_output(symbol,text_output,
         else:
             print(f"/n {symbol} output saved into {file_path} /n")
 
-def write_test_output(symbol, text_output, what_output):
-    file_path = f"output/{symbol}/{what_output}.txt"
-    with open(file_path, 'a') as file:
-            file.write(f"{text_output} /n ")
 
 
 ##############################################################################################################################   
@@ -113,6 +111,7 @@ def write_test_output(symbol, text_output, what_output):
 ############################################################################################################################## 
 '''main'''
 if __name__ == '__main__':
-    # batch_download()
-    # batch_create_output_folder()
+    batch_download()
+    batch_create_output_folder("output_base")
+    batch_create_output_folder("output_ToC")
     pass

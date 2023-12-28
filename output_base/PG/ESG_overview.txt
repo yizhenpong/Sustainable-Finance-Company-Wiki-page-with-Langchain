@@ -1,0 +1,14 @@
+Header: ESG_overview /n  The 2022 Health for Humanity Report and the 2023 Environmental Progress Report provide insight into Apple's Environmental, Social, and Governance (ESG) initiatives focusing on diversity, equity, and inclusion (DE&I) and environmental sustainability.
+
+Regarding DE&I, Apple reported gender representation across various regions and employment types in its workforce as of a certain point. The data reveals that women hold 49.4% of positions in the Asia Pacific region, 50.7% in Europe, Middle East & Africa, 54.6% in Latin America, 47.5% in North America, and accounted for 51.5% of professionals. The report also shows that women make up 73,826 full-time employees, 3,048 part-time employees, 2,784 fixed-term employees, and 49.2% of directors and managers.
+
+On the environmental front, Apple reported on its climate change resources and smarter chemistry engagement in the 2023 Environmental Progress Report. The report includes data on the company's use of coal, gas, nuclear, hydro, and renewable energy sources for its operations. Apple uses a significant amount of renewable energy, with solar projects accounting for 75% of their renewable energy usage, wind projects contributing 21%, and biogas fuel cells providing 3%. Additionally, the report includes information on various Apple products' weights and storage configurations.
+
+For more detailed information on Apple's ESG initiatives, refer to the following pages in the reports:
+
+Diversity, Equity & Inclusion:
+- Health for Humanity Report: Pages 110-111
+- Independent Assurance Statements: Pages 2-5
+
+Environmental Sustainability:
+- 2023 Environmental Progress Report: Pages 89-104. /n 
