@@ -18,7 +18,7 @@ While entities like MSCI and Sustainalytics offer quantitative ESG ratings, the 
 ## Part 1 - Data collection
 Collect data relevant for sustainable finance
 - nasdaq screener csv file
-- `web_scrapping.py` to extract the sustainability report links to generate `company_info.csv`
+- `web_scrapping.py` to extract the sustainability report links to generate `company_info.csv`, now done manually
 - `data_helper.py` to download all sustainability reports
 
 ## Part 2 - Content generation
@@ -26,11 +26,14 @@ Ideally the structure that I want to have:
 - General company information
     - Info from CSV file: Symbol, Name,Last Sale,Net Change,% Change,Market Cap,Country,IPO Year,Volume,Sector,Industry,Company_website,Sustainability_report_link
 - ESG Overview
-    - commitment (work require generation)
+    - commitment 
     - achievements
     - ESG ratings
     - ESG reporting frameworks
 - ESG Approach (detailed information is required, sustainability policies, material topics etc)
+
+Approach 2: ToC method
+counting tokens: https://news.ycombinator.com/item?id=37268311 
 
 ## Part 3 - Evaluation
 
