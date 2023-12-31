@@ -53,8 +53,11 @@ def download_pdf(url, symbol):
 def get_SR_file_path(symbol):
     return f"data/sustainability_reports/{symbol}.pdf"
 
-def create_folder(symbol,main_f_path=["output_base", "output_ToC", "data/sustainability_reports"]):
-    folder_name = f"{main_f_path}/{symbol}"
+def create_folder(main_f_path=["output_base", "output_ToC", "data/sustainability_reports"],symbol=-1):
+    if symbol == -1:
+        folder_name = f"{main_f_path}"
+    else:
+        folder_name = f"{main_f_path}/{symbol}"
     # path = os.path.join("output", symbol) 
     try:
         # Create a folder with the specified name
@@ -72,11 +75,12 @@ def batch_download():
 def batch_create_output_folder(main_f_path):
     for index, row in df.iloc[:, :].iterrows():  # Skip the header row
         symbol = row['Symbol']
-        create_folder(symbol,main_f_path)
+        create_folder(main_f_path,symbol)
         
 
 def write_output(symbol,text_output,
-                 portion=["ESG_approach","ESG_approach_outline", "ESG_overview", "Company_info", "TableOfContents"], 
+                 portion=["ESG_approach","ESG_approach_outline", "ESG_overview", 
+                          "Company_info", "TableOfContents","ToC_only_ESG_approach_outline"], 
                  header = False, list_type = False, title = False, ToC = False):
     if ToC:
         file_path = f"output_ToC/{symbol}/{portion}.txt"
@@ -96,13 +100,54 @@ def write_output(symbol,text_output,
         else:
             print(f"/n {symbol} output saved into {file_path} /n")
 
+def get_filtered_pages(input_string):
+    # Define a regular expression pattern to match "answer:" followed by a list
+    pattern = r"answer:\s*\[([^\]]*)\]"
+
+    # Use re.search to find the pattern in the input string
+    match = re.search(pattern, input_string)
+
+    # If a match is found, return the captured group (the content of the square brackets)
+    if match:
+        text_with_newlines = match.group(1)
+        cleaned_text = text_with_newlines.replace("\n", "")
+        return cleaned_text
+    else:
+        # Return None if no match is found
+        return f"""Pls find manually... \n \n
+        #==========================================
+        {input_string}
+        #=========================================="""
+    
+class RangeElement:
+    def __init__(self, value):
+        self.value = value
+
+    def __repr__(self):
+        if ':' in self.value:
+            start, end = map(int, self.value.split(':'))
+            return f"{start}:{end}"
+        else:
+            return str(self.value)
+
+def convert_to_list(input_string):
+    # Split the string into individual elements
+    elements = input_string.split(',')
+
+    # Convert each element to the appropriate format
+    output_list = []
+    for element in elements:
+        element = element.strip()
+        output_list.append(RangeElement(element))
+
+    return output_list
 
 
 ##############################################################################################################################   
 '''test case'''
 # symbol = "AAPL"
 # print(extract_company_info(symbol))
-# url = extract_company_info(symbol, df)['Sustainability_report_link'].iloc[0]
+# url = extract_company_info(symbol)['Sustainability_report_link'].iloc[0]
 # print(url)
 # print(download_pdf(url,"AAPL"))
 # print(get_all_companies())
@@ -111,7 +156,9 @@ def write_output(symbol,text_output,
 ############################################################################################################################## 
 '''main'''
 if __name__ == '__main__':
-    batch_download()
+    # batch_download()
+    create_folder(main_f_path="output_base")
+    create_folder(main_f_path="output_ToC") # creates base folders
     batch_create_output_folder("output_base")
-    batch_create_output_folder("output_ToC")
+    batch_create_output_folder("output_ToC") #creates individual company folders
     pass
