@@ -1,0 +1,7 @@
+Header: rag_ToC_outline /n  * Coca-Cola's ESG approach is focused on Water, Agriculture, Climate, Human Rights, and various aspects of Sustainability.
+* Water: Reducing water use in operations, replenishing 100% of the water used by their beverages by 2025, implementing drought-resistant agricultural practices, and supporting water stewardship programs. (Pages: 43, 24)
+* Agriculture: Ensuring responsible sourcing of agricultural raw materials, setting sustainable agriculture goals with suppliers, and using regenerative farming practices. (Pages: 47, 14)
+* Climate: Setting science-based climate targets to reduce emissions and strengthening the resilience of operations against climate impacts. (Page: 43)
+* Human Rights: Establishing a Global Human Rights Policy, enhancing labor practices, providing human rights training for employees, and conducting regular risk assessments and audits. (Pages: 52, 18, 22)
+* Sustainability: Implementing innovative practices and solutions to reduce waste, create circular packaging systems, and promote sustainable communities. (Pages: 15, 36, 60)
+* Other noteworthy topics: Governance & Management, Diversity, Equity & Inclusion, Safety & Health, Giving Back to Our Communities, and Economic Empowerment. (Pages: 18, 56, 55) /n 

@@ -25,6 +25,7 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
+import chromadb
 from langchain.embeddings import OllamaEmbeddings
 
 '''Retrieving and generation'''
@@ -32,29 +33,47 @@ from langchain.output_parsers import CommaSeparatedListOutputParser,StructuredOu
 from langchain.schema import StrOutputParser
 from langchain.prompts import PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
-from langchain.chains import LLMChain
+from langchain.chains import LLMChain, RetrievalQA
 
 ############################################################################################################################## 
-def run_wiki_gen_base(company_symbol):
+def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     ''' PART 1 - Indexing (load, split, store)'''
     # company_symbol = "CCEP"
     loader = PyPDFLoader(dh.get_SR_file_path(company_symbol))
     pages = loader.load_and_split()
-    # pages = pages[:3]
+    pages = pages[:3]
+
+    #===== to run RAG + ToC ========= start ==========
+    if pageRange != "-1":
+        try:
+            pages = pages[pageRange]
+        except:
+            return dh.write_output(company_symbol, 
+                                   f"No point running RAG + ToC approach, unable to slice pages","Company_info",ToC=True)
+    #===== to run RAG + ToC ========= end ========== 
+    
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     all_splits = text_splitter.split_documents(pages)
-    vectorstore = Chroma.from_documents(documents=all_splits, embedding=OllamaEmbeddings())
 
+    vectorstore = Chroma.from_documents(documents=all_splits, embedding=OllamaEmbeddings())
+    print("created vectorstore...")
 
     print("completed stage 1 of RAG -- Indexing (load, split, store)")
 
     ############################################################################################################################## 
-    '''PART 2 - Retrieving and generation (retrieve, generate)'''
+    '''PART 2 - Retrieving and generation (retrieve, generate)
+    note: order is PART A > C outline > C > B
+    '''
 
     '''open source llm - mistral 7b'''
     llm = Ollama(model='mistral',
+                 system="You are an expert at sustainable finance and ESG evaluation",
                     callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
+
     retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 6})
+    # methods to consider hyde, cohere reranker etc
+    # https://python.langchain.com/docs/templates/hyde?ref=blog.langchain.dev
+    # https://python.langchain.com/docs/integrations/retrievers/cohere-reranker?ref=blog.langchain.dev 
 
     '''pre generation'''
 
@@ -230,4 +249,4 @@ def run_wiki_gen_base(company_symbol):
 
 
 # run_wiki_gen_base("CCEP")
-# 
+# run_wiki_gen_base("CCEP") 
