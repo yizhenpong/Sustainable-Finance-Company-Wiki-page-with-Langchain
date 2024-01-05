@@ -49,7 +49,7 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
             pages = pages[pageRange]
         except:
             return dh.write_output(company_symbol, 
-                                   f"No point running RAG + ToC approach, unable to slice pages","Company_info",ToC=True)
+                                   f"No point running RAG + ToC approach, unable to slice pages","Company_info",ToC=ToCStatus)
     #===== to run RAG + ToC ========= end ========== 
     
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
@@ -85,7 +85,6 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
 
     interested_fields = ["Company name", "ISIN Code", "Headquarters", "founded in", "founded by", "Important People",
                         "Website", "Sustainability Report Name"]
-
     response_schemas = [
         ResponseSchema(name=interested_fields[0], description=f"Official {interested_fields[0]}"),
         ResponseSchema(name=interested_fields[1], description=f"Official {interested_fields[1]}"),
@@ -99,28 +98,26 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     output_parser = StructuredOutputParser.from_response_schemas(response_schemas)
     format_instructions = output_parser.get_format_instructions()
 
-    template0 = """You are tasked to create a Sustainable Finance Wikipedia page for a company 
-            and in particular the section on general company information. 
-            Find the information for the list of fields and provide your answer in key,value pairs: {fields}
-            Only use information from this context, 
-            if you don't know the answer, use the value NA and do not make up an answer:  {context}"""  
-
+    template0 = """You are tasked to create a the general company information for the sustainable finance Wikipedia page for a company \n
+            You should provide the answer as key,value pairs for these fields: {fields} \n
+            Only use information from this context, if you don't know the answer, use the value NA and do not make up an answer:  {context}
+            Please format your answer based on these format instructions: {format_instructions}"""  
+    
     rag_prompt_custom0 = PromptTemplate(
-        template= template0,
-        input_variables=["context", "fields"])
-
-    '''retriever and rag_chain'''
-    # retrieved_docs = retriever.get_relevant_documents(str(interested_fields))
-    # print(f"retrieved documents for {interested_fields}")
+        template = template0,
+        input_variables=["context", "fields"],
+        partial_variables={"format_instructions": format_instructions})
+    
     rag_chain0 = (
         {"context": retriever | format_docs, "fields": RunnablePassthrough()}
         | rag_prompt_custom0
         | llm
-        | StrOutputParser() #CommaSeparatedListOutputParser() # StrOutputParser() -- rerun for this....?
+        | output_parser
     )
+
     company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
-    dh.write_output(company_symbol,"Header: Company_info","Company_info", header=True)
-    dh.write_output(company_symbol,company_info_key_val_pairs,"Company_info")
+    dh.write_output(company_symbol,"Header: Company_info","Company_info", header=True, ToC=ToCStatus)
+    dh.write_output(company_symbol,company_info_key_val_pairs,"Company_info",ToC=ToCStatus)
     print("completed stage 2a of RAG -- General company info")
 
     #==================================================
@@ -131,6 +128,7 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     '''(i) retrieve & generate OUTLINE first!!'''   
 
     '''prompt engineering'''
+    keywords = []
     question1 = """What is the Environmental Social Governance (ESG) approach of this company? 
                 You may consider material topics, sustainability or environmental approach of companies.
                 This may cover sustainable practices and policies, from products to supply chain, and also covers human rights"""    
@@ -160,7 +158,7 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     )
     # outline_ls = rag_chain.invoke("What is the Environmental Social Governance (ESG) approach of this company in list format?")
     outline_ls = rag_chain1.invoke(question1)
-    dh.write_output(company_symbol,outline_ls,"ESG_approach_outline", list_type=True)
+    dh.write_output(company_symbol,outline_ls,"ESG_approach_outline", list_type=True,ToC=ToCStatus)
     print("completed stage 2c(i) of RAG -- ESG Approach outline")
 
     #==================================================
@@ -193,11 +191,11 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
 
     '''generation'''
     for point in outline_ls:
-        dh.write_output(company_symbol, f"/n Sub header: {point}","ESG_approach",header=True) 
+        dh.write_output(company_symbol, f"/n Sub header: {point}","ESG_approach",header=True,ToC=ToCStatus) 
         # retrieved_docs = retriever.get_relevant_documents(point)
         # print(f"retrieved documents for {point}")
         article = rag_chain2.invoke(point)
-        dh.write_output(company_symbol,article,"ESG_approach") 
+        dh.write_output(company_symbol,article,"ESG_approach",ToC=ToCStatus) 
 
     print("completed stage 2c(ii) of RAG -- ESG Approach pointers")
 
@@ -231,8 +229,8 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
         | StrOutputParser() 
     )
     ESG_overview = rag_chain.invoke(outline_ls)
-    dh.write_output(company_symbol,"Header: ESG_overview","ESG_overview", header=True)
-    dh.write_output(company_symbol,ESG_overview,"ESG_overview")
+    dh.write_output(company_symbol,"Header: ESG_overview","ESG_overview", header=True,ToC=ToCStatus)
+    dh.write_output(company_symbol,ESG_overview,"ESG_overview",ToC=ToCStatus)
 
     print("completed stage 2b of RAG -- ESG Overview")
 
@@ -248,5 +246,5 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     ##############################################################################################################################
 
 
-# run_wiki_gen_base("CCEP")
-# run_wiki_gen_base("CCEP") 
+run_wiki_gen_base("CCEP")
+# 
