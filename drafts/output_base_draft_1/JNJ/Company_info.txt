@@ -1,0 +1,10 @@
+Header: Company_info /n  ['Company name': "Johnson & Johnson",
+'ISIN Code': "JNJ US" for Johnson & Johnson Inc. in the US, NA for other ISIN codes,
+'Headquarters': New Brunswick, New Jersey, USA,
+'founded in': 1886,
+'founded by': James Wood Johnson and Robert Wood Johnson I,
+'Important People': Joaquin Duato (Chairman of the Board and CEO), NA for other important people,
+'Website': <https://www.jnj.com/>,
+'Sustainability Report Name': "2022 Health for Humanity Report"]
+
+The information provided in the text indicates that Johnson & Johnson is a company focused on healthcare, with significant investments in R&D and digital capabilities. The company has also made progress towards gender parity and mental health resources, as well as environmental initiatives such as sourcing renewable energy and expanding recycling programs. The report highlights achievements in 2022, including ranking #2 on the Access to Medicine Index and securing deals for renewable energy. There is no explicit mention of an ISIN code or specific people other than Joaquin Duato, so those fields are marked as NA. /n 
