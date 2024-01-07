@@ -8,27 +8,22 @@ import re
 Getting data from csv file 'company_info.csv'
 Downloading the sustainability reports
 
-Functions: 
-    extract_company_info: 
-        input: (str) symbol (unique for each company)
-        output: (dataframe) of all relevant company fields 
-    download_pdf: 
-        input: 
-            (str) url of the pdf
-            (str) symbol (unique for each company)
-        output: sustainability reports saved in 'data/sustainabiltiy_reports/' and named as {symbol}.pdf
-    batch_download: 
-        output: all sustainability reports for companies listed in 'company_info.csv
+download pdf to file path: "data/sustainability_reports/{symbol}.pdf"
+output folders:
+    output_base
+        - individual companies based on symbol
+            - company_info.txt
+            - ESG_approach_outline
+            - ESG_approach
+            - ESG_overview
+    output_ToC
+        - same as above
 '''
 
 ############################################################################################################################## 
 '''import overall data info as data frame'''
 df = pd.read_csv('data/company_info.csv')
 headers = list(df)
-# print(headers)
-# df = pd.read_csv ('data/nasdaq_screener_1702878444666.csv')
-# print(len(df)) # num of rows
-# print(df['Symbol'].nunique())
 
 def extract_company_info(symbol):
     return df.loc[df["Symbol"]==symbol, :]

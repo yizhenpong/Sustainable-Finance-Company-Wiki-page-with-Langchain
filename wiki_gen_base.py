@@ -238,11 +238,6 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     vectorstore.delete_collection()
     print(f"deleted information in vectorstore for {company_symbol}")
 
-    print(vectorstore._collection.count())
-    if vectorstore._collection.count() == 0:
-        print(f"double confirmed nothing left in vectorstore, ready for next run")
-
-
     ##############################################################################################################################
 
 
