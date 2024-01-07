@@ -15,6 +15,8 @@ Dealing with long outputs - use an outline and tackle from top down
 ############################################################################################################################## 
 '''general'''
 import data_helper as dh
+import time
+from time_helper import save_time
 
 '''to get llm'''
 from langchain.llms import Ollama
@@ -40,6 +42,7 @@ from operator import itemgetter
 def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     ''' PART 1 - Indexing (load, split, store)'''
     # company_symbol = "CCEP"
+    start_time = time.time()
     loader = PyPDFLoader(dh.get_SR_file_path(company_symbol))
     pages = loader.load_and_split()
     pages = pages[:3]
@@ -58,6 +61,7 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
 
     vectorstore = Chroma.from_documents(documents=all_splits, embedding=OllamaEmbeddings())
     print("created vectorstore...")
+    index_time = time.time()
 
     print("completed stage 1 of RAG -- Indexing (load, split, store)")
 
@@ -236,8 +240,11 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     dh.write_output(company_symbol,ESG_overview,"ESG_overview",ToC=ToCStatus)
 
     print("completed stage 2b of RAG -- ESG Overview")
+    
 
     ##############################################################################################################################
+    end_time = time.time()
+    save_time(company_symbol, start_time, index_time, end_time,ToCStatus=ToCStatus)
 
     print("setting up for new run of RAG -- ESG Overview")
     vectorstore.delete_collection()
