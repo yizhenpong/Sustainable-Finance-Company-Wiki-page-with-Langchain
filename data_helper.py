@@ -75,7 +75,7 @@ def batch_create_output_folder(main_f_path):
 
 def write_output(symbol,text_output,
                  portion=["ESG_approach","ESG_approach_outline", "ESG_overview", 
-                          "Company_info", "TableOfContents","ToC_only_ESG_approach_outline"], 
+                          "Company_info", "TableOfContents","ToC_only_ESG_approach_outline", "TableOfContents_unordered"], 
                  header = False, list_type = False, title = False, ToC = False):
     if ToC:
         file_path = f"output_ToC/{symbol}/{portion}.txt"
@@ -83,17 +83,15 @@ def write_output(symbol,text_output,
         file_path = f"output_base/{symbol}/{portion}.txt"
     if list_type:
         with open(file_path, 'a') as file:
-            [file.write(f"{item} /n ") for item in text_output]
-            print(f"/n {symbol} list in text_output saved into {file_path} /n")
+            [file.write(f"{item}\n ") for item in text_output]
+            print(f"\n {symbol} list in text_output saved into {file_path} ")
     else:
         with open(file_path, 'a') as file:
-            file.write(f"{text_output} /n ")
+            file.write(f"{text_output} \n ")
         if header:
-            print(f"/n {symbol} header, {text_output}, saved into {file_path} /n")
-        if title:
-            print(f"/n {symbol} company name saved into {file_path} /n")
+            print(f"\n {symbol} header, {text_output}, saved into {file_path}\n")
         else:
-            print(f"/n {symbol} output saved into {file_path} /n")
+            print(f"\n {symbol} output saved into {file_path} \n")
 
 def get_filtered_pages(input_string):
     # Define a regular expression pattern to match "answer:" followed by a list
@@ -136,6 +134,12 @@ def convert_to_list(input_string):
         output_list.append(RangeElement(element))
 
     return output_list
+
+def get_ToC(symbol):
+    file_path = f"output_ToC/{symbol}/TableOfContents.txt"
+
+    
+
 
 
 ##############################################################################################################################   

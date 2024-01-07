@@ -34,6 +34,7 @@ from langchain.schema import StrOutputParser
 from langchain.prompts import PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain.chains import LLMChain, RetrievalQA
+from operator import itemgetter
 
 ############################################################################################################################## 
 def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
@@ -41,6 +42,7 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     # company_symbol = "CCEP"
     loader = PyPDFLoader(dh.get_SR_file_path(company_symbol))
     pages = loader.load_and_split()
+    pages = pages[:3]
 
     #===== to run RAG + ToC ========= start ==========
     if pageRange != "-1":
@@ -125,33 +127,38 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     '''
 
     '''(i) retrieve & generate OUTLINE first!!'''   
+    if not ToCStatus:
+        keywords = ["material topics", "sustainability", "environmental", "sustainable", "supply chain", "human rights"]
+        question1 = f"""What is the Environmental Social Governance (ESG) approach of this company? 
+                    You may consider the following keywords: {keywords}"""    
+        template1 = """You are tasked to identify several themes that answers question {question} \n
+                Each theme must be less than 5 words.
+                Only use information from this context, if you don't know the answer, just say that you don't: {context} \n
+                Please format your answer based on these format instructions: {format_instructions}"""  
+        output_parser = CommaSeparatedListOutputParser()
+        format_instructions = output_parser.get_format_instructions()
 
-    '''prompt engineering'''
-    keywords = ["material topics", "sustainability", "environmental", "sustainable", "supply chain", "human rights"]
-    question1 = f"""What is the Environmental Social Governance (ESG) approach of this company? 
-                You may consider the following keywords: {keywords}"""    
-    template1 = """You are tasked to identify several themes that answers question {question} \n
-            Each theme should be less than 5 words.
-            Only use information from this context, if you don't know the answer, just say that you don't: {context} \n
-            Please format your answer based on these format instructions: {format_instructions}"""  
+        rag_prompt_custom1 = PromptTemplate(
+            template= template1,
+            input_variables=["context", "question"],
+            partial_variables={"format_instructions": format_instructions})
 
-    output_parser = CommaSeparatedListOutputParser()
-    format_instructions = output_parser.get_format_instructions()
+        rag_chain1 = (
+            {"context": retriever | format_docs, "question": RunnablePassthrough()}
+            | rag_prompt_custom1
+            | llm
+            | output_parser
+        )
+        outline_ls = rag_chain1.invoke(question1)
+        dh.write_output(company_symbol,outline_ls,"ESG_approach_outline", list_type=True,ToC=ToCStatus)
+        print("completed stage 2c(i) of RAG -- ESG Approach outline")
 
-    rag_prompt_custom1 = PromptTemplate(
-        template= template1,
-        input_variables=["context", "question"],
-        partial_variables={"format_instructions": format_instructions})
+    if ToCStatus:
+        # do some retrieval of Table of Contents
+        # then generate the outline based on ToC
+        # just make sure that u use CommaSeparatedListOutputParser()
+        pass
 
-    rag_chain1 = (
-        {"context": retriever | format_docs, "question": RunnablePassthrough()}
-        | rag_prompt_custom1
-        | llm
-        | output_parser
-    )
-    outline_ls = rag_chain1.invoke(question1)
-    dh.write_output(company_symbol,outline_ls,"ESG_approach_outline", list_type=True,ToC=ToCStatus)
-    print("completed stage 2c(i) of RAG -- ESG Approach outline")
 
     #==================================================
     '''(ii) retrieve & generate SPECIFIC POINTS in the outline'''
@@ -180,23 +187,24 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     print(len(outline_ls))
 
     '''generation'''
+    dh.write_output(company_symbol, f"Header: ESG_approach","ESG_approach",header=True,ToC=ToCStatus) 
     for point in outline_ls:
-        dh.write_output(company_symbol, f"##### Sub header: {point}","ESG_approach",header=True,ToC=ToCStatus) 
+        dh.write_output(company_symbol, f"Sub header: {point}","ESG_approach",header=True,ToC=ToCStatus) 
         article = rag_chain2.invoke(point)
         dh.write_output(company_symbol,article,"ESG_approach",ToC=ToCStatus) 
 
     print("completed stage 2c(ii) of RAG -- ESG Approach pointers")
+    
+    
 
     #==================================================
     '''retrieve & generate CONTENT for PART B -- ESG OVERVIEW:
     - ESG Overview
         - commitment 
         - achievements
-        - ESG ratings
+        - ESG ratings # in the future...
         - ESG reporting frameworks
     '''
-
-    '''prompt engineering'''
 
     keywords = ["sustainable commitments", "2050", "2030", "carbon zero", "net zero", "achievements", "reporting frameworks",
                 "IFRS", "GRI", "SASB", "SDG", "CDP"]
@@ -206,19 +214,24 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
 
     template3 = """You are tasked to create the ESG overview section for the sustainable finance Wikipedia page of a company \n
             You should write one to two paragraphs answering this question: {question} \n
-            Only use information from this context:  {context}"""  
+            Include just a line that talks about the themes that was covered earlier: {themes} \n 
+            if the information does not exist, just say so, you must only use information from this context:  {context}"""  
 
     rag_prompt_custom3 = PromptTemplate(
         template= template3,
         input_variables=["question", "context"])
 
     rag_chain3 = (
-        {"context": retriever | format_docs, "question": RunnablePassthrough()}
+        {
+            "context": itemgetter("question")| retriever,
+            "question": itemgetter("question"),
+            "themes": itemgetter("themes"),
+        }
         | rag_prompt_custom3
         | llm
         | StrOutputParser() 
     )
-    ESG_overview = rag_chain3.invoke(question3)
+    ESG_overview = rag_chain3.invoke({"question":question3, "themes":str(outline_ls)})
     dh.write_output(company_symbol,"Header: ESG_overview","ESG_overview", header=True,ToC=ToCStatus)
     dh.write_output(company_symbol,ESG_overview,"ESG_overview",ToC=ToCStatus)
 
@@ -233,4 +246,3 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     ##############################################################################################################################
 
 
-run_wiki_gen_base("CCEP")
