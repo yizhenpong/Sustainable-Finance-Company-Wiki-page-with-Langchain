@@ -1,8 +1,0 @@
-Header: Company_info /n  ['Company name': 'Baidu',
- 'ISIN Code': NA,
- 'Headquarters': 'Baidu Campuses, No.10 Shangdi 10th Street, Haidian District, Beijing, 100085, China',
- 'founded in': NA,
- 'founded by': NA,
- 'Important People': NA,
- 'Website': 'https://www.baidu.com/',
- 'Sustainability Report Name': 'Baidu 2022 Environmental, Social and Governance Report'] /n 

@@ -1,8 +1,0 @@
-Header: Company_info /n  ['Company name': "Procter & Gamble (P&G)",
- 'ISIN Code': "US0355811035",
- 'Headquarters': "Cincinnati, Ohio, USA",
- 'founded in': "1837",
- 'founded by': "Philo and James Gamaliel Procter, and Alexander Turner Fleming",
- 'Important People': ["David S. Taylor", "CEO and Chairman of the Board"],
- 'Website': "https://www.pg.com/",
- 'Sustainability Report Name': "Transforming Our World: P&G and the UN Sustainable Development Goals"}] /n 
