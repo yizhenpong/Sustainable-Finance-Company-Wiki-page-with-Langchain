@@ -41,7 +41,6 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     # company_symbol = "CCEP"
     loader = PyPDFLoader(dh.get_SR_file_path(company_symbol))
     pages = loader.load_and_split()
-    pages = pages[:3]
 
     #===== to run RAG + ToC ========= start ==========
     if pageRange != "-1":
@@ -98,7 +97,7 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     output_parser = StructuredOutputParser.from_response_schemas(response_schemas)
     format_instructions = output_parser.get_format_instructions()
 
-    template0 = """You are tasked to create a the general company information for the sustainable finance Wikipedia page for a company \n
+    template0 = """You are tasked to create the general company information section for the sustainable finance Wikipedia page of a company \n
             You should provide the answer as key,value pairs for these fields: {fields} \n
             Only use information from this context, if you don't know the answer, use the value NA and do not make up an answer:  {context}
             Please format your answer based on these format instructions: {format_instructions}"""  
@@ -128,17 +127,13 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     '''(i) retrieve & generate OUTLINE first!!'''   
 
     '''prompt engineering'''
-    keywords = []
-    question1 = """What is the Environmental Social Governance (ESG) approach of this company? 
-                You may consider material topics, sustainability or environmental approach of companies.
-                This may cover sustainable practices and policies, from products to supply chain, and also covers human rights"""    
-    template1 = """Use the following pieces of context to answer the question at the end.
-    If you don't know the answer, just say that you don't know, don't try to make up an answer.
-    Come up with list of pointers for the question and keep the pointers as concise as possible
-    {context}
-    Question: {question}
-    Remember to structure your answer using these format instructions: {format_instructions}
-    Helpful Answer:"""
+    keywords = ["material topics", "sustainability", "environmental", "sustainable", "supply chain", "human rights"]
+    question1 = f"""What is the Environmental Social Governance (ESG) approach of this company? 
+                You may consider the following keywords: {keywords}"""    
+    template1 = """You are tasked to identify several themes that answers question {question} \n
+            Each theme should be less than 5 words.
+            Only use information from this context, if you don't know the answer, just say that you don't: {context} \n
+            Please format your answer based on these format instructions: {format_instructions}"""  
 
     output_parser = CommaSeparatedListOutputParser()
     format_instructions = output_parser.get_format_instructions()
@@ -147,16 +142,13 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
         template= template1,
         input_variables=["context", "question"],
         partial_variables={"format_instructions": format_instructions})
-    '''retriever and rag_chain'''
-    # retrieved_docs = retriever.get_relevant_documents(question)
-    # print(f"retrieved documents for {question}")
+
     rag_chain1 = (
         {"context": retriever | format_docs, "question": RunnablePassthrough()}
         | rag_prompt_custom1
         | llm
-        | CommaSeparatedListOutputParser()
+        | output_parser
     )
-    # outline_ls = rag_chain.invoke("What is the Environmental Social Governance (ESG) approach of this company in list format?")
     outline_ls = rag_chain1.invoke(question1)
     dh.write_output(company_symbol,outline_ls,"ESG_approach_outline", list_type=True,ToC=ToCStatus)
     print("completed stage 2c(i) of RAG -- ESG Approach outline")
@@ -165,13 +157,11 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     '''(ii) retrieve & generate SPECIFIC POINTS in the outline'''
 
     '''prompt engineering, structuring prompts'''
-    template2 = """ You are tasked to write a section of an article about the Environmental Social Governance (ESG) approach of a company.
-    Specifically focusing on this aspect of the ESG Approach: \n {pointer}
-    Do not hallucinate or create your own content to complete the story. 
-    There is also no need to start with "Title:", directly produce the contents.
-    Use only the following pieces of context to generate the text. {context}
-
-    Text:"""
+    template2 = """You are tasked to write the ESG approach section for the sustainable finance Wikipedia page of a company,
+                    specifically on {pointer}. \n
+                    Write about three to five paragraphs, reference the source of the context using the page number as much as possible.
+                    Only use information from this context to generate text: {context}"""
+    
     rag_prompt_custom2 = PromptTemplate(
         template= template2,
         input_variables=["context", "pointer"])
@@ -191,9 +181,7 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
 
     '''generation'''
     for point in outline_ls:
-        dh.write_output(company_symbol, f"/n Sub header: {point}","ESG_approach",header=True,ToC=ToCStatus) 
-        # retrieved_docs = retriever.get_relevant_documents(point)
-        # print(f"retrieved documents for {point}")
+        dh.write_output(company_symbol, f"##### Sub header: {point}","ESG_approach",header=True,ToC=ToCStatus) 
         article = rag_chain2.invoke(point)
         dh.write_output(company_symbol,article,"ESG_approach",ToC=ToCStatus) 
 
@@ -210,29 +198,33 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
 
     '''prompt engineering'''
 
-    template3 = """You are tasked to give a Environmental Social Governance (ESG) Overview of this company. 
-    You may wish to cover their sustainable commitments like carbon zero or net zero, achievements, what are their current ESG reporting frameworks, their ESG ratings.
-    You shall not include this list of ESG approaches as they have been covered already: {ESG_approaches} 
-    You must not hallucinate and come up with your own content, a highly accurate answer that can be referenced to a page number is much preferred.
-    Use only context from here: {context}"""
+    keywords = ["sustainable commitments", "2050", "2030", "carbon zero", "net zero", "achievements", "reporting frameworks",
+                "IFRS", "GRI", "SASB", "SDG", "CDP"]
+    question3 = f"""What are their sustainable commitments, achievements, and reporting standards?
+                You may consider the following keywords: {keywords}""" 
+
+
+    template3 = """You are tasked to create the ESG overview section for the sustainable finance Wikipedia page of a company \n
+            You should write one to two paragraphs answering this question: {question} \n
+            Only use information from this context:  {context}"""  
 
     rag_prompt_custom3 = PromptTemplate(
         template= template3,
-        input_variables=["ESG_approaches", "context"])
-    '''retriever and rag_chain'''
-    # retrieved_docs = retriever.get_relevant_documents(question3)
-    # print(f"retrieved documents for {question3}")
-    rag_chain = (
-        {"context": retriever | format_docs, "ESG_approaches": RunnablePassthrough()}
+        input_variables=["question", "context"])
+
+    rag_chain3 = (
+        {"context": retriever | format_docs, "question": RunnablePassthrough()}
         | rag_prompt_custom3
         | llm
         | StrOutputParser() 
     )
-    ESG_overview = rag_chain.invoke(outline_ls)
+    ESG_overview = rag_chain3.invoke(question3)
     dh.write_output(company_symbol,"Header: ESG_overview","ESG_overview", header=True,ToC=ToCStatus)
     dh.write_output(company_symbol,ESG_overview,"ESG_overview",ToC=ToCStatus)
 
     print("completed stage 2b of RAG -- ESG Overview")
+
+    ##############################################################################################################################
 
     print("setting up for new run of RAG -- ESG Overview")
     vectorstore.delete_collection()
@@ -242,4 +234,3 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
 
 
 run_wiki_gen_base("CCEP")
-# 
