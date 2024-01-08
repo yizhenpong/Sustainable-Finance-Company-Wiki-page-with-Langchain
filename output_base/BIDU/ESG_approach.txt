@@ -1,0 +1,122 @@
+Header: ESG_approach 
+ Sub header: employee training 
+  Baidu, as a leading tech company, places great importance on employee training and development to build a learning organization. In line with its commitment to enhancing corporate governance and nurturing talent, Baidu increased the average training hours for each employee by approximately 4 hours in 2022 (Baidu 2022 ESG Report, p. 96).
+
+To empower universities in AI talent training, Baidu has established strong partnerships with numerous educational institutions. By integrating industry experience and resources into their learning systems, the company provides comprehensive AI courses designed to cater to various application scenarios (Baidu 2022 ESG Report, p. 97). Moreover, textbooks are compiled in collaboration with core departments to facilitate rapid growth among young employees and managers (Baidu 2022 ESG Report, p. 97).
+
+The average number of training hours for middle managers at Baidu increased from 67.5 to 68.4 hours between 2021 and 2022 (Baidu 2022 ESG Report, p. 68). These development programs cover a wide range of areas, including leadership, general competency, common skills, and business mentality (Baidu 2022 ESG Report, p. 97). The company's emphasis on employee training is evident in the addition of 4,557 new courses to its online learning platform, Duxuetang, in 2022 alone (Baidu 2022 ESG Report, p. 96).
+
+Baidu is not only focused on the technical growth of its employees but also prioritizes their ethical and professional development. The company conducted privacy protection and data security training for all staff members in 2022 (Baidu 2022 ESG Report, p. 96). Furthermore, every employee is required to adhere to a Business Ethics and Code of Conduct Commitment Letter, with regular business ethics training provided to deepen their understanding of the company's expectations in this regard (Baidu 2022 ESG Report, p. 97).
+
+In summary, Baidu is dedicated to fostering a culture of continuous learning and development among its employees. By investing in educational partnerships, comprehensive training programs, and ethical governance frameworks, the company is able to nurture talent, build trust, and contribute to society as a whole. 
+ Sub header: security personnel qualification 
+  Paragraph 1: Baidu's Commitment to ESG and University Cooperation for AI Talent Training
+Baidu's approach to Environmental, Social, and Governance (ESG) is rooted in its dedication to contributing to society, enhancing corporate governance, building trust, nurturing talent, and promoting green ideas [1]. The company values universities as the primary institutions for AI professional talent development. To empower these institutions, Baidu leverages its industrial experience and resources, creating sophisticated AI learning systems in cooperation with many universities [2]. By designing industry-focused courses, Baidu aims to provide complete training for students (96/97).
+
+Paragraph 2: Effective Collaboration between Baidu and Universities in AI Talent Training
+Baidu's partnership with universities is noteworthy as they work together to create advanced AI learning systems. The courses offered are meticulously designed, taking into account application scenarios from the industry [2]. This collaborative effort has resulted in a high-quality textbook that serves as an industry benchmark (96/97).
+
+Paragraph 3: Baidu's Commitment to Building a Team of Security Talent and Industry Impact
+Baidu recognizes the importance of having a competent team of security personnel to ensure effective risk management. To improve security personnel skills, Baidu is dedicated to enhancing their knowledge (17). The company also strives to make an impact on the industry and community by utilizing its remarkable security capacity.
+
+Paragraph 4: Regulatory Compliance in Baidu's Security Personnel Training
+Baidu adheres to stringent regulatory requirements for training its security personnel (28). Regular audits and tests are conducted on related businesses, both domestically and abroad, where the company is listed or operates [1]. These evaluations help identify areas for improvement and facilitate rectification.
+
+Paragraph 5: Baidu's ISO Certifications and Continuous Improvement in Security Training
+Baidu holds various certifications that demonstrate its commitment to information security management, including ISO 27001, ISO 27701, ISO 27018, and ISO 27018 [16]. By continuously improving its training programs and obtaining these certifications, Baidu ensures that it remains at the forefront of security talent development and industry standards.
+
+References:
+[1] Baidu 2022 Environmental, Social and Governance Report
+[2] Case: Baidu Helps Expand Universities' Capabilities of AI Talent Training (96/97) 
+ Sub header: industry standards development 
+  Paragraph 1: Baidu's Commitment to Industry Standards Development in ESG and AI Talent Training
+Baidu, as a leading tech company and the main institution for training AI professional talent, takes its role in society seriously. The company empowers universities through sophisticated AI learning systems, providing complete training courses for students (96/97). Baidu's cooperation with universities is noteworthy, as they aim to create advanced AI capabilities together and help expand universities' capacities in AI talent training.
+
+Paragraph 2: ESG Achievements in University Cooperation and Technological Innovation
+Baidu has established strong ties with many universities to provide AI courses and learning resources, enabling the application scenarios of industry needs (96/97). In addition to its commitment to university partnerships, Baidu participates in the formulation of national safety standards and international standards related to technology innovation. These efforts demonstrate Baidu's dedication to promoting technological advancements while adhering to industry standards.
+
+Paragraph 3: Green Ideas and Corporate Governance: Building Trust and Enhancing ESG Performance
+Baidu actively explores the use of green financial products to ensure a stable supply of funding for green technology R&D during the carbon neutrality period (16/17). The company has successfully issued a US$1 billion sustainable development bond and allocated net proceeds from the first bond to finance and refinance sustainable development projects in accordance with its sustainable financing framework. By addressing climate change risks through green financial products, Baidu builds trust with stakeholders and upholds its commitment to ESG principles.
+
+Paragraph 4: ESG Training and Compliance: Nurturing Talent and Enhancing Corporate Governance
+Every employee at Baidu is required to uphold business ethics and sign the Business Ethics and Code of Conduct Commitment Letter (16/56). The company provides regular business ethics training and position-specific training, aiming to deepen understanding of Baidu's requirements on business ethics. This commitment to ethical practices is an essential component of Baidu's ESG efforts and reinforces its dedication to corporate governance and transparency.
+
+Paragraph 5: Regulatory Compliance and Continuous Improvement: Building Trust through Policy Adherence
+Baidu conducts regular business ethics training for all employees, including sessions on anti-fraud, anti-money laundering, data statistical auditing, financial audit, internal control, and other related topics (16/57). The company's robust governance framework includes a Board of Directors, an Audit Committee, a Committee of Professional Ethics, and a Professional Ethics Department. These structures ensure that Baidu maintains regulatory compliance and continually enhances its ESG performance. 
+ Sub header: user experience enhancement 
+  Baidu's commitment to Enhancing User Experience through Sustainable ESG Practices: Empowering Universities and Promoting Green Ideas
+
+Baidu, as a leading technology company, is dedicated to making significant contributions to society by enhancing corporate governance, building trust, nurturing talent, improving services, and promoting green ideas [1]. In alignment with this mission, Baidu has been actively empowering universities in the training of AI talent, which plays a crucial role in driving user experience enhancement [2].
+
+To achieve this goal, Baidu has established strong partnerships with numerous universities to create sophisticated AI learning systems. The company's AI courses are designed based on industry application scenarios and aim to provide comprehensive training for students looking to delve into the field of AI technology [3]. Furthermore, textbooks and other learning resources are compiled to ensure a high-quality educational experience.
+
+Baidu's innovative work platform, Baidu Infoflow, is a testament to its commitment to knowledge management and enterprise innovation. This platform uses AI and knowledge management at its core and establishes a functional matrix for the creation, accumulation, flow, and application of knowledge [4]. The efficient flow of knowledge is facilitated through unified search and intelligent recommendation systems, ultimately enhancing the innovation capability of all employees.
+
+Baidu's efforts towards sustainable practices extend beyond talent development. In 2022, the company installed distributed photovoltaic power generation systems on the roofs of its campuses and buildings, with a combined capacity of 964.44 kWp and a total power generation of 602,900 kWh [5]. These systems contribute to reducing carbon emissions by providing clean electricity for administrative operations. Additionally, Baidu's implementation of ISO certifications for privacy information management systems, public cloud personal information protection management systems, and information security management systems further emphasizes its dedication to protecting user data and maintaining trust [6][7].
+
+Baidu's initiatives in the realm of ESG practices extend to the advertising sector as well. For instance, Baidu Mobile Advertisement SDK passed a series of security tests conducted by the Safety and Police Electronic Product Quality Testing Center of the Ministry of Public Security [8]. These accomplishments not only enhance user experience but also promote transparency and trust within the company's operations.
+
+References:
+[1] Baidu 2022 Environmental, Social and Governance Report, p. 3.
+[2] ibid., p. 9.
+[3] ibid., p. 15-16.
+[4] ibid., p. 27.
+[5] ibid., p. 31-32.
+[6] ibid., p. 40-41.
+[7] ibid., p. 43-44.
+[8] ibid., p. 50. 
+ Sub header: alcohol advertisement restrictions 
+  Title: Baidu's Approach to Environmental, Social, and Governance (ESG) with a Focus on Alcohol Advertisement Restrictions
+
+Baidu, a leading Chinese technology company, has been making significant strides in various fields, including culture preservation, personal information protection, and technological innovation. This section focuses on Baidu's ESG approach, particularly its efforts in alcohol advertisement restrictions.
+
+In the cultural realm, Baidu launched the Baidu Digital Museum Project ten years ago, which has since grown to include thousands of digital collections from over 596 museums worldwide [1][2]. The project also features easy access to these collections and professional knowledge, making it possible for users to "visit museums across the country" digitally [1]. In addition, Baidu donated protective clothing, sets of technological facilities, and antigen reagents to support the fight against COVID-19 in Beijing [3].
+
+Regarding personal information protection, Baidu has been recognized as a pioneer in this area. The company was awarded the title "Pioneering Practice Case in the Personal Information Protection Compliance Audit" from the China Academy of Information and Communications Technology (CAICT) and the Institute of Internal Auditors in 2022 [3][4]. Baidu's proactivity and effectiveness in personal information protection risk audits have become an industry benchmark.
+
+To ensure ESG compliance, Baidu adheres to various security standards, including those related to alcohol advertisement restrictions. For instance, the company follows the National Information Security Standardization Technical Committee (TC260) and the China Communications Standards Association (CCSA) guidelines on privacy policies for internet platforms, products, and services [5][6]. Moreover, Baidu conducts regular security audits to maintain system reliability and effectiveness [7].
+
+In terms of social responsibility, Baidu has taken steps to improve accessibility for hearing-impaired users. The company developed an AI sign language platform all-in-one device, which is scalable and user-friendly [8]. Furthermore, Baidu's autonomous-driving architecture platform, Apollo Galaxy, has been used to develop redundant systems that ensure safety and reliability when components or systems fail [9].
+
+Baidu also contributes to society by enhancing corporate governance, building trust, nurturing talent, improving services, and promoting green ideas [10]. The company's technology improves the efficiency of urban governance by addressing issues such as high energy consumption, carbon emissions, and traffic congestion [11][12]. For instance, Baidu developed a security risk detection and verification service platform for the industrial internet, which is a key project of the Ministry of Science and Technology in 2021-2025 [13].
+
+In conclusion, Baidu's ESG approach encompasses various initiatives to ensure compliance with standards, protect personal information, improve accessibility, and promote social responsibility. Its efforts in areas such as alcohol advertisement restrictions demonstrate its commitment to responsible business practices and contribute to a more sustainable future.
+
+References:
+[1] Baidu Digital Museum Project 10th Anniversary (2022, Baidu Environmental, Social and Governance Report, p. 6)
+[2] Drawing digital relics maps using digital technology (2022, Baidu Environmental, Social and Governance Report, p. 7)
+[3] Baidu donates protective clothing, sets of technological facilities, and antigen reagents to support Beijing's fight against COVID-19 (2022, Baidu Environmental, Social and Governance Report, p. 8)
+[4] Baidu wins the title of "Pioneering Practice Case in the Personal Information Protection Compliance Audit" (2022, Baidu Environmental, Social and Governance Report, p. 15)
+[5] National Information Security Standardization Technical Committee (TC260) and Information Security Technology--Requirements of Privacy Policy of Internet Platforms, Products and Services (n.d., accessed August 14, 2023)
+[6] China Communications Standards Association (CCSA) and Evaluation Index of Internet Enterprises to Prevent and Govern Telecommunication Network Fraud (n.d., accessed August 14, 2023)
+[7] Baidu conducts regular security audits to maintain system reliability and effectiveness (2022, Baidu Environmental, Social and Governance Report, p. 28)
+[8] Developing an AI sign language platform all-in-one device (2022, Baidu Environmental, Social and Governance Report, p. 17)
+[9] Apollo RT6: Redundant systems that ensure safety and reliability when components or systems fail (2022, Baidu Environmental, Social and Governance Report, p. 21)
+[10] Enhancing corporate governance, building trust, nurturing talent, improving services, and promoting green ideas (2022, Baidu Environmental, Social and Governance Report, p. 3)
+[11] Addressing issues such as high energy consumption, carbon emissions, and traffic congestion in urban development (2022, Baidu Environmental, Social and Governance Report, p. 4)
+[12] Developing a security risk detection and verification service platform for the industrial internet (2022, Baidu Environmental, Social and Governance Report, p. 26)
+[13] Key Special Project of the Ministry of Science and Technology in 2021-2025 (n.d., accessed August 14, 2023) 
+ Sub header: employee communication. 
+  Paragraph 1:
+Baidu, a leading technology company based in China, has demonstrated its commitment to environmental sustainability through various initiatives. One such initiative is the "520, Low Carbon Action" campaign, which encourages employees to adopt eco-friendly practices and reduce waste (68). In line with this effort, Baidu has developed intelligent office products and platforms using AI technology and knowledge management (68). For instance, Baidu Infoflow has made offices paperless and low-energy through optimized data application in finance, personnel, conference, and park management, saving an estimated 1.06 million pieces of paper in 2022 (68).
+
+Paragraph 2:
+Besides environmental sustainability, Baidu also places significant emphasis on employee communication and career development. The company continually enhances its policies and regulations, such as the Baidu Human Rights Policy and the Baidu Employee Manual, to promote an equal working environment where everyone is respected (68). In 2022, Li Ying, Vice President of Baidu, showcased Baidu's focus on talent development at the APEC Women's Leadership Forum by proposing the leverage of AI and knowledge management as foundations for innovation pipelines (69).
+
+Paragraph 3:
+In addition to internal initiatives, Baidu is making strides in sustainable transportation through its Intelligent Expressway technology. This digital infrastructure improves road sensing and monitoring capabilities and enables all-weather access to address congestion and extreme weather issues (80). Baidu's collaboration with the Hebei Expressway Group for the construction of an intelligent Beijing–Harbin Expressway is a testament to its commitment to improving transportation infrastructure sustainably (81).
+
+Paragraph 4:
+Baidu's growth engines, including Mobile Ecosystem, AI Cloud, Intelligent Driving, and other cutting-edge businesses, are driving innovation in their respective industries by leveraging profound AI technology accumulation and full-stack AI layout (82). The company has been granted over 2,700 patents in China, with five awards received at the 23rd China Patent Award Selection for autonomous driving, computer vision, natural language processing, and mapping technologies (82).
+
+Paragraph 5:
+Baidu's commitment to freedom to operate, or FTO, is evident through its application of over 4,000 patents in China and the granting of five awards, including two silver medals and three excellence medals, at the 23rd China Patent Award Selection (83). This dedication to intellectual property rights not only supports Baidu's innovation but also contributes to the advancement of technology industries as a whole.
+
+Sources:
+Baidu 2022 Environmental, Social and Governance Report. Retrieved from <https://ir.baidu.com/static/report/ESGReport_2022-EN.pdf>
+Paragraph 1 references: p. 68
+Paragraph 2 references: p. 68
+Paragraph 3 references: p. 80, 81
+Paragraph 4 references: p. 69, 82
+Paragraph 5 references: p. 82, 83 
+ 

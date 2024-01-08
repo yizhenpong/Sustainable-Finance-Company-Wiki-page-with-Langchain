@@ -1,0 +1,9 @@
+Header: ESG_overview 
+  Coca-Cola European Partners (CCEP) is committed to sustainable practices in various aspects of its business, including water security, priority communities, global supply chain, plastic waste reduction, and circular economy. In terms of water security, CCEP aims to reduce its water use ratio by 20% by 2030 from a 2015 baseline for all operations across the system. The company has achieved a water use ratio of 1.79 liters of water used per liter of beverage in 2022, which is their highest achievement in water efficiency to date.
+
+In terms of carbon footprint reduction, CCEP aims to achieve a 7% decline in absolute emissions since 2015 and a 25% science-based reduction target by 2030. The company has also made strides in circular economy initiatives such as building collection infrastructures, including deposit return systems (DRS), and working with industry peers to improve collection rates for various packaging types. For instance, they achieved a collection rate of 161% for non-refillable PET plastic bottles and cans and 58% for cartons/juice boxes in 2022.
+
+CCEP also focuses on sustainable sourcing and supplier engagement. In 2022, 21% of their suppliers provided climate data to CDP, representing a 12% increase from the previous year, and they have increased their renewable electricity usage in their system. Additionally, CCEP is collaborating with various stakeholders on water security initiatives, such as introducing large returnable glass bottles (LRGB) in Sri Lanka and Sweden, installing Bonaqua Water Stations in Hong Kong, and contributing to sustainable water access projects globally.
+
+CCEP's reporting frameworks include IFRS, GRI, SASB, and CDP, ensuring transparency and accountability in their sustainability efforts. These initiatives cover the themes of water security, priority communities, global supply chain, plastic waste reduction, and circular economy. 
+ 

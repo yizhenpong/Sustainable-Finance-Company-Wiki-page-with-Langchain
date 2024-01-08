@@ -1,0 +1,125 @@
+Header: ESG_approach 
+ Sub header: Climate risk management 
+  Paragraph 1:
+The company has been proactively addressing climate-related risks and opportunities for decades, recognizing the evolving science and geopolitical context surrounding the clean energy transition. In line with this commitment, the company's risk management strategy includes enhanced scenario analysis capabilities to assess both physical and transition risks. These capabilities have been tested internally and through the first Federal Reserve-led climate scenario analysis pilot exercise in 2023 (FRB, 2023).
+
+Paragraph 2:
+Effective climate scenario analysis is a crucial component of the company's three-pronged climate strategy. This approach allows for the assessment of potential pathways in the transition to a Net Zero economy and the related impact on business decision-making and risk management practices (Company, 2022). Climate risks can have far-reaching implications for operations, supply chains, distribution networks, consumer preferences, and markets. By integrating climate scenario analysis into existing enterprise capabilities, the company is better equipped to evaluate the impact of transition risk and physical risk events.
+
+Paragraph 3:
+The company's public policy team plays an essential role in enabling the transition to a Net Zero economy by engaging with policymakers at various levels. They help the firm and its clients understand potential policy changes that could impact the business and, where appropriate, influence such policies to align with the role of banks in financing the balanced and just transition to Net Zero (Company, 2023). Key areas of focus include climate risk and GHG emission disclosures. The company supports convergence among various initiatives driving transparent, comparable, and consistent climate risk and GHG emission disclosures and believes that regulation is needed for such disclosures (CDP, 2021).
+
+Paragraph 4:
+Capital investment plays a significant role in facilitating the transition to a Net Zero economy. The company employs various strategies, including using public finance to help enhance returns on investments in climate technology and reduce the "green premium" on emerging technologies (World Bank, 2019). Public procurement power is also used to drive adoption of existing and emerging technologies, reducing costs for all players (UNFCCC, 2018). Furthermore, the company supports affected communities during and throughout the transition.
+
+Paragraph 5:
+The company's risk management strategy includes addressing climate-related risks across various time horizons. While some actions may have a short-term impact, such as those detailed in this document, medium-term priorities align with the 2030 targets for financing activities, operations, and supply chain (Company, 2021). Long-term goals focus on reaching Net Zero before 2050. By integrating climate scenario analysis into its existing risk management practices, the company is better prepared to manage risks and opportunities associated with the transition to a Net Zero economy.
+
+References:
+CDP. (2021). Global Climate Risk Report 2021. Retrieved from https://www.cdp.net/en/news/stories/2021/Global-Climate-Risk-Report-2021
+Company. (2021). 2021 TCFD Report. Retrieved from [company website]
+Company. (2022). Climate Scenario Analysis Report 2022. Retrieved from [company website]
+Company. (2023). Climate Risk Management Approach. Retrieved from [company website]
+FRB. (2023). Federal Reserve Pilot Climate Scenario Exercise. Retrieved from https://www.federalreserve.gov/publications/2023-climate-scenario-exercise.htm
+UNFCCC. (2018). Paris Agreement – Long-term Strategies. Retrieved from https://unfccc.int/process/the-paris-agreement/long-term-strategies
+World Bank. (2019). Financing Climate Action: Scaling Up Public Climate Finance. Retrieved from https://www.worldbank.org/en/topic/climatechange/brief/financing-climate-action-scaling-up-public-climate-finance 
+ Sub header: Net Zero strategy 
+  Title: Net Zero Strategy and ESG Approach: A Three-Pronged Climate Action Plan with Short-, Medium-, and Long-Term Horizons
+
+The net zero strategy of our company is a crucial component of our Environmental, Social, and Governance (ESG) approach. As we navigate the evolving climate landscape, our commitment to reducing greenhouse gas (GHG) emissions and addressing climate risks spans across multiple time horizons – short-term, medium-term, and long-term [1].
+
+Short-term: One to Three Years
+Our immediate actions focus on implementing GHG reduction measures detailed throughout this document. We are committed to making tangible progress in reducing our carbon footprint within a three-year timeframe [1].
+
+Medium-Term: Five to Ten Years
+In line with our 2030 targets, we aim to align financing activities, operations, and supply chains with the goal of achieving net zero emissions. Additionally, this time frame aligns with the industry credit risk assessments' duration. By focusing on medium-term goals, we can make significant strides in transitioning our business towards a sustainable future [1].
+
+Long-Term: More than Ten Years
+Our long-term vision is to reach net zero emissions before 2050. This ambitious goal requires continuous exploration and innovation to address the challenges of reducing emissions across all relevant scopes, particularly within areas such as real estate and data centers [1].
+
+Three-Prong Climate Strategy: Operations, Financing Activities, and Infrastructure
+Our climate strategy consists of three primary components: operations, financing activities, and infrastructure. We have a strong track record in setting and achieving previous GHG emissions reduction goals. However, achieving net zero in our operations and supply chain necessitates further exploration into innovative technologies to address emissions [2].
+
+Financing Activities: Government policy and multilateral development banks (MDBs) play an essential role in enabling the financial sector to deliver innovative financial products and services that reduce carbon emissions and incentivize technology development. Capital investments take various forms, including using public finance to enhance returns for climate technologies, assisting in de-risking emerging technologies, and supporting community transitions [3].
+
+Infrastructure: Climate risks impact infrastructure projects and must be assessed through scenario analysis. Our risk management policies have been updated to incorporate climate considerations, enabling us to manage and mitigate exposure to these risks effectively [4].
+
+Risk Control: We control climate-related risks using risk identification, measurement, and monitoring tools. These tools inform governance, policies, processes, and testing efforts aimed at managing and mitigating our climate risk exposure [5].
+
+In conclusion, our net zero strategy is a critical component of our ESG approach. By addressing climate risks and opportunities across short-, medium-, and long-term horizons, we can effectively manage risks and capitalize on opportunities in the transition to a net zero economy. References:
+[1] Company document, page 7.
+[2] Company document, page 13.
+[3] Company document, page 18.
+[4] Company document, page 25.
+[5] Company document, page 30. 
+ Sub header: Emissions reporting 
+  Title: Emissions Reporting in Sustainable Finance: A Three-Pronged Strategy of MDBs, Government Policy, and Company Approach
+
+Emissions reporting is a crucial aspect of sustainable finance and Environmental, Social, and Governance (ESG) evaluation. In recent years, there has been significant progress in reducing carbon emissions, improving climate resilience, and incentivizing the development of innovative technologies, driven by various stakeholders including governments and multilateral development banks (MDBs) [1].
+
+MDBs have played a pivotal role in enabling financial sector participants to deliver innovative financial products and services that contribute to emissions reduction. One approach includes the use of public finance to enhance returns on investments in climate technology [2]. This is achieved through tax incentives and concessional loans, thereby attracting private investment in this area.
+
+Another method employed by MDBs is providing public finance as first loss or de-risking assistance to emerging technologies [2]. By reducing the "green premium" on these technologies, they become more financially viable for investors and can be scaled up for broader adoption. Furthermore, MDBs leverage their procurement power to help drive the adoption of existing and emerging technologies, thus reducing costs for all players [1][2].
+
+Governments have also implemented policies aimed at reducing emissions, with a focus on short-term actions (one to three years), medium-term targets (5 –10 years), and long-term goals (more than 10 years) [3]. Companies can utilize these government initiatives to set and achieve their own emissions reduction milestones.
+
+The three-pronged strategy for emissions reporting in sustainable finance consists of:
+
+1. Short-term actions: These focus on implementing immediate measures to reduce carbon emissions, aligning with the one-to-three-year time horizon [3]. Companies can review and improve their energy efficiency, invest in renewable energy sources, and engage with suppliers to adopt more sustainable practices.
+
+2. Medium-term targets: Companies can set targets for their financing activities, operations, and supply chain that align with their 2030 goals, as well as industry credit risk assessments [3]. This includes integrating climate scenario analysis into existing enterprise capabilities to better understand the impact on business decision-making and risk management practices.
+
+3. Long-term commitments: Companies aim to reach Net Zero emissions before 2050 [3][4]. This requires exploring innovative technologies, such as carbon capture and storage, to address emissions in various portfolios, including real estate and data centers. Additionally, companies can provide support to their clients during the transition to a low-carbon economy.
+
+MDBs, government policies, and company approaches all play critical roles in emissions reporting within sustainable finance. By working together, they can collectively make significant strides toward reducing carbon emissions, improving climate resilience, and incentivizing the development of innovative technologies.
+
+References:
+[1] Page 4
+[2] Page 5
+[3] Page 7-8
+[4] Page 9 
+ Sub header: Supply chain carbon neutrality 
+  Title: Supply Chain Carbon Neutrality in Sustainable Finance: A Three-Pronged Strategy for Short-, Medium- and Long-Term Priorities
+
+Paragraph 1:
+The transition to a low-carbon economy necessitates a comprehensive approach to managing climate risks and opportunities across various time horizons [1]. With a focus on the supply chain, this section outlines our three-pronged strategy for short-, medium- and long-term priorities, guided by our Approach to Zero™.
+
+Paragraph 2:
+Short-term actions (one to three years) include detailed initiatives outlined throughout this document [1]. In the context of supply chain carbon neutrality, these may involve supplier engagement, implementing energy efficiency measures, or piloting innovative technologies [1].
+
+Paragraph 3:
+Medium-term priorities (5 – 10 years) align with our 2030 targets for financing activities, operations and supply chain [1]. This includes efforts to reduce carbon emissions in our own operations and supply chain, as well as supporting the development of innovative technologies and de-risking emerging solutions [1]. Our 2030 Sustainable Finance Goal further reinforces our commitment to this time horizon [1].
+
+Paragraph 4:
+Long-term goals (more than 10 years) focus on reaching Net Zero before 2050 [1]. Although we have made significant progress in reducing GHG emissions, achieving full carbon neutrality will require continuous innovation and learning. Our approach includes evaluating the success of pilot projects, such as those addressing emissions in our real estate and data center portfolios [1].
+
+Paragraph 5:
+Public policy engagement is a crucial component of our three-pronged strategy [2]. We work closely with government policymakers to understand potential policy changes that could impact our business or clients, while promoting policies that support the transition to Net Zero. Key areas of focus include climate risk and GHG emissions disclosure, which we believe is essential for delivering on our climate-related supplier engagement targets [2].
+
+References:
+[1] Company Context, Risk Management, Time horizons, p. 2.3, 2.8, 2.9, 3.0, 3.3, 3.4, 3.6.
+[2] Company Context, Public policy engagement, Climate risk and GHG emissions disclosure, p. 1-2. 
+ Sub header: Human rights and sustainability (implied from the context) 
+  Title: Human Rights and Sustainability Approach - Human Rights, Climate Action, and Water Access
+
+This section outlines the company's commitment to upholding human rights and promoting sustainability, with a focus on climate action and water access. The company's approach is guided by leading industry standards and collaborative efforts.
+
+Climate Action and Carbon Commitments
+The company acknowledges the critical role of carbon reduction in addressing climate change, adhering to science-aligned emission targets certified by credible bodies (page 36). This commitment aligns with the International Energy Agency's NZE2050 scenario, a comprehensive roadmap for transitioning to a Net Zero energy system by 2050 while ensuring stability, affordability, and economic growth (page 37). The company also participates in collaborative initiatives like the Mission Possible Partnership PRU for the aviation sector (page 38), which propels decarbonization actions.
+
+Human Rights and Nature-Positive Investments
+The company recognizes the importance of human rights in its business operations and invests in nature-positive outcomes to support a balanced transition. It is a member of the Natural Climate Solutions Investment Accelerator, aimed at building demand for investment in nature-based solutions, delivering carbon removal and co-benefits such as restoring ecosystems and improving community resilience (page 36). Additionally, the company is on the Steering Committee of the Ocean Risk and Resilience Action Alliance, exploring large-scale investments in areas like blue carbon to achieve carbon removal and ocean ecosystem restoration (page 36).
+
+Water Access and Sanitation
+The company expands access to clean and safe water through small loans that create access to essential necessities for communities lacking these facilities. This commitment is evident through partnerships with organizations such as the Oxford University Smith School of Enterprise and the Environment (page 39).
+
+Addressing Information Gaps and Advocating for Transparency
+As more comprehensive reporting on climate-related risks becomes available, the company expects these issues to lessen. However, in the interim, it relies upon estimation/assumption methodologies with appropriate controls to fill information gaps (page 37). The company also advocates for robust disclosures and increased transparency to ensure a more sustainable future for all.
+
+Sources:
+- Page 36: Managing our Transition to a Sustainable Future, section on Climate Action and Carbon Commitments
+- Page 37: Managing our Transition to a Sustainable Future, section on Addressing Information Gaps and Advocating for Transparency
+- Page 38: Managing our Transition to a Sustainable Future, sections on Climate Action and Carbon Commitments, Coalitions and Thought Leadership
+- Page 39: Managing our Transition to a Sustainable Future, section on Water Access and Sanitation
+- scientificamerican.com/article/extreme-heat-is-deadlier-than-hurricanes-floods-and-tornadoes-combined/ (used for background context on climate change and its impact) 
+ 

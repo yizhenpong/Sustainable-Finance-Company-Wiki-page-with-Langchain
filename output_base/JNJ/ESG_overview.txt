@@ -1,0 +1,19 @@
+Header: ESG_overview 
+  Johnson & Johnson (J&J) is a multinational corporation that operates in various industries, including pharmaceuticals and consumer goods. The company has made significant commitments towards sustainable business practices and social responsibility. J&J aims to reduce its carbon footprint and achieve net-zero greenhouse gas emissions by 2030, with an interim target of reducing emissions by 25% by 2025 compared to a 2019 baseline [1].
+
+Regarding environmental, health, and safety (EH&S) compliance, J&J has reported 167 instances of non-compliance [2]. Fines totaling $11.7 thousand were paid due to these non-compliances. The company has 87 manufacturing and R&D sites certified to ISO 14001 [3], a globally recognized standard for environmental management systems.
+
+J&J is committed to diversity, equity, and inclusion (DE&I) in its workforce. According to the data provided in their sustainability reports from 2022, they have achieved gender balance across various regions and employment types [1][4][5]. In Asia Pacific, women represent 49.4% of the workforce, while men account for 50.6%. Europe, Middle East & Africa has a slightly higher percentage of women at 50.7%, and Latin America has the highest percentage with 54.6% of women in its workforce. The company also reports on gender representation across employment types, including full-time employees, part-time employees, fixed-term employees, and job categories such as vice presidents, directors and managers, professionals, and management and executive positions [1][4][5].
+
+J&J's reporting standards include various frameworks such as the Global Reporting Initiative (GRI), Sustainability Accounting Standards Board (SASB), and Carbon Disclosure Project (CDP) [6]. They have also adopted United Nations Sustainable Development Goals (SDGs) to guide their sustainable business practices.
+
+The data provided does not mention any specific achievements related to the themes of gender representation or EH&S compliances and fines for the year 2030 or the long-term goal of becoming carbon zero by 2050. Additionally, it is essential to note that this analysis is based on the information available in the provided sustainability reports from 2022. For a more comprehensive understanding of Johnson & Johnson's sustainable commitments, achievements, and reporting standards, it is recommended to access their official website or contact their investor relations team for further information.
+
+References:
+[1] Johnson & Johnson (n.d.). Environmental, Social, and Governance (ESG) at Johnson & Johnson. Retrieved from https://www.jnj.com/our-company/environmental-social-governance
+[2] Johnson & Johnson (2022). Health for Humanity Report. Retrieved from data/sustainability_reports/JNJ.pdf - page 110
+[3] Johnson & Johnson (2022). Health for Humanity Report. Retrieved from data/sustainability_reports/JNJ.pdf - page 110
+[4] Johnson & Johnson (2022). Health for Humanity Report. Retrieved from data/sustainability_reports/JNJ.pdf - page 108, 109
+[5] Johnson & Johnson (2022). Health for Humanity Report. Retrieved from data/sustainability_reports/JNJ.pdf - page 108
+[6] Johnson & Johnson (n.d.). Environment. Retrieved from https://www.jnj.com/our-company/environmental-social-governance/environment 
+ 

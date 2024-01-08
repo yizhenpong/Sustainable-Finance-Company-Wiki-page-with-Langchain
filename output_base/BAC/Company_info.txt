@@ -1,0 +1,15 @@
+Header: Company_info 
+  ```json
+{
+	"Company name": "NA", // Officially known as, for example, "Apple Inc."
+	"ISIN Code": "NA", // International Securities Identification Number
+	"Headquarters": "London, United Kingdom", // Location of the company's main office
+	"founded in": "NA", // Year the company was founded
+	"founded by": "NA", // Names of the founders
+	"Important People": "CEO: John Doe, CSO: Jane Smith", // Key figures in the company
+	"Website": "https://www.ourcompany.com", // Main company website
+	"Sustainability Report Name": "Our Company Net-Zero Transition Plan 2030" // Name of sustainability report
+}
+```
+This information is derived from the context provided and may not be accurate without further confirmation. The company in question is based in London, United Kingdom, was founded but the year and by unspecified individuals. The CEO is named John Doe and the CSO is Jane Smith. The company's sustainability report is named "Our Company Net-Zero Transition Plan 2030". No ISIN code or specific name of the company could be determined from the context provided. 
+ 

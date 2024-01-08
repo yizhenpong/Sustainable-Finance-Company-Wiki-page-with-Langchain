@@ -1,0 +1,3 @@
+Header: Company_info 
+ {'Company name': 'Johnson & Johnson', 'ISIN Code': 'US4991281035', 'Headquarters': 'New Brunswick, New Jersey, USA', 'founded in': '1886', 'founded by': 'James Wood Johnson and Robert Wood Johnson I', 'Important People': 'Michael Ehret, Ph.D. (Head of Global Talent Development)', 'Website': 'https://www.jnj.com/', 'Sustainability Report Name': '2022 Health for Humanity Report'} 
+ 

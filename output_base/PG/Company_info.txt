@@ -1,0 +1,3 @@
+Header: Company_info 
+ {'Company name': 'Procter & Gamble', 'ISIN Code': 'US0334261035', 'Headquarters': 'Cincinnati, Ohio, USA', 'founded in': 'October 3, 1837', 'founded by': 'William Procter and James Gamble', 'Important People': 'David Taylor (Chairman of the Board, President and Chief Executive Officer)', 'Website': 'https://www.pg.com/', 'Sustainability Report Name': 'P&G Sustainability Report 2019: Creating a better world takes all of us'} 
+ 

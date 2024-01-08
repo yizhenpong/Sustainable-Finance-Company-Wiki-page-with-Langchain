@@ -1,0 +1,114 @@
+Header: ESG_approach 
+ Sub header: Apple's ESG themes:
+1. Renewable energy and emissions reduction: "68% revenue growth 
+  Apple's commitment to Environmental, Social, and Governance (ESG) themes is reflected in its focus on renewable energy and emissions reduction. The company's Supplier Clean Energy Program is a significant initiative in this regard. According to the latest reports, over 250 suppliers account for over 85% of Apple's direct spend and have committed to using renewable electricity for their Apple production (Apple Inc., 2023). This represents over 20 gigawatts of clean energy commitments, with nearly two-thirds already operational.
+
+In March 2023, these suppliers procured 13.7 gigawatts of renewable energy online in Apple's supply chain (Apple Inc., 2023). This reduction in emissions is a substantial step towards addressing the environmental impact of Apple's supply chain. In addition to working with its direct suppliers, Apple plans to invest in additional renewable electricity projects to cover emissions from those it does not contract directly (Apple Inc., 2023).
+
+Moreover, Apple itself has made significant strides in transitioning to renewable energy sources. The company has invested nearly 500 MW of solar and wind projects in China and Japan (Apple Inc., 2023). By focusing on renewable energy for its own operations and encouraging its suppliers to do the same, Apple is demonstrating leadership in reducing emissions within the technology industry.
+
+Regarding waste management, Apple's efforts include scaling the use of recycled materials in its products. For example, the company introduced more than 100 parts with an average of over 40% recycled plastic in 2022 (Apple Inc., 2023). In addition to increasing the use of recycled materials, Apple is working on eliminating plastic from the packaging of refurbished products by 2027 (Apple Inc., 2023). The company also prioritizes material reuse, composting, and waste diversion across its corporate and retail locations. In 2022, it achieved a waste diversion rate of 83% from construction and demolition projects through recycling and source separation efforts (Apple Inc., 2023).
+
+Apple's commitment to sustainability extends beyond its own operations and supply chain. It also collaborates with local partners to support recycling and composting as an alternative to municipal waste disposal programs (Apple Inc., 2023). By promoting material reuse, composting, and waste diversion, Apple is leading the way in creating a circular economy within the tech industry.
+
+In conclusion, Apple's ESG approach to renewable energy and emissions reduction demonstrates its commitment to reducing the environmental impact of its operations and supply chain. Through initiatives like the Supplier Clean Energy Program, the company is encouraging suppliers to transition to clean, renewable electricity sources. Additionally, by increasing the use of recycled materials in its products and promoting waste diversion across its corporate and retail locations, Apple is leading the way in creating a more sustainable future for the technology industry.
+
+References:
+Apple Inc. (2023). Supplier Responsibility Report 2023. Retrieved from <https://supplierresponsibility.apple.com/report/>. 
+ Sub header: 45% emission decrease"
+2. Supply chain energy efficiency: "Supplier Clean Energy Program"
+3. Water management: "1,527 M gallons withdrawal 
+  Apple's approach to Environmental, Social, and Governance (ESG) considerations reflects its commitment to reducing carbon emissions and improving supply chain sustainability. One of Apple's significant targets is to decrease its emissions by 49% by 2025, compared to 2015 levels [1]. To put this into context, in the United States alone, retail packaging accounts for approximately 37 million metric tons of carbon equivalents annually [49-52].
+
+Apple's efforts to reduce emissions extend beyond its own operations. The company aims to help suppliers adopt renewable energy technologies, enabling them to make significant strides towards Apple's goal of carbon neutrality by 2030 [56-58]. As part of this initiative, Apple operates large renewable projects like the Montague Wind Power Facility in Oregon, which generates clean electricity to address indirect emissions from manufacturing and product use [59-61].
+
+Another aspect of Apple's ESG strategy is improving supply chain energy efficiency. For instance, the Supplier Clean Energy Program aims to reduce energy consumption across the company's supplier base by encouraging the adoption of renewable energy sources [2]. In Prineville, Oregon, Apple collaborated with the city to develop an aquifer storage and recovery system, ensuring water security and reducing the impact on local water supplies during periods of high demand [35-37].
+
+Apple also takes steps to minimize waste in its packaging. By excluding plastic-based components from its retail packaging design guidelines [33], Apple aims to avoid the use of plastics and other non-renewable materials, contributing to a more sustainable supply chain [49-52]. Additionally, Apple is committed to using recycled materials in its products, such as the 100% recycled aluminum stand for the Studio Display and the Mac Studio enclosure and Apple TV thermal module that both contain 80% recycled aluminum [31-32].
+
+In summary, Apple's ESG approach focuses on reducing carbon emissions through internal initiatives and collaborations with suppliers. The company also prioritizes energy efficiency in its supply chain and product design to minimize waste and promote a circular economy. By adopting these strategies, Apple is making significant strides towards its goal of becoming carbon neutral by 2030 while also contributing to the broader sustainability efforts in its industry.
+
+References:
+[1] Apple Inc., "Environmental Responsibility Report," 2021, p. 5.
+[2] Apple Inc., "Environmental Responsibility Report," 2021, p. 9.
+[3] Apple Inc., "Environmental Responsibility Report," 2021, p. 12.
+[49-52] Apple Inc., "Environmental Responsibility Report," 2021, pp. 48-52.
+[31-33] Apple Inc., "Environmental Responsibility Report," 2021, pp. 30-33.
+[56-59] Apple Inc., "Environmental Responsibility Report," 2021, pp. 11-14. 
+ Sub header: 679 M gallons discharge"
+4. Waste management: "15,086 tonnes landfill 
+  Title: Apple's Commitment to Sustainable Production: Waste Management and Recycled Content
+
+Apple's focus on sustainable production is evident in its waste management practices and the use of recycled content in its products. The company prioritizes resources that are certified for their responsible management to minimize depletion of the earth's resources (Apple, 2023, p. 37).
+
+One crucial aspect of Apple's waste management strategy is its landfill diversion rate, which stood at 67% in fiscal year 2022 (Apple, 2023, p. 27). This impressive figure demonstrates the company's dedication to reducing its environmental footprint by diverting a significant portion of waste from municipal solid waste. In the same year, Apple reported recycling 66,380,630 pounds and composting 10,397,430 pounds of waste (Apple, 2023, p. 27).
+
+Apple also prioritizes transparency regarding the use of recycled content in its products. The company reports data about the recycled content at various levels of fidelity based on independent verification (Apple, 2023, p. 37). Apple ensures that the bulk of its recycled content data is certified and verified by an independent third party. Although less than 5% of the total mass shipped in Apple products in fiscal year 2022 contained recycled content that was either supplier-verified or supplier-reported, the company's commitment to this practice aligns with ISO 14021 standards (Apple, 2023, p. 37).
+
+Regarding packaging, Apple aims to eliminate plastic from the packaging of refurbished products by 2027 (Apple, 2023, p. 27). The company's dedication to waste reduction also extends to its production process, as it reported saving over 13 million gallons of freshwater in its supply chain in fiscal year 2022 (Apple, 2023, p. 27).
+
+Moreover, Apple is transparent about the water usage in its corporate facilities and supply chain. In fiscal year 2022, the company used a total of 1,527 million gallons of water, with 1,380 million gallons being freshwater (Apple, 2023, p. 26). The remaining water came from alternative sources such as recycled water and other sources (Apple, 2023, p. 26).
+
+In summary, Apple demonstrates its commitment to waste management and the use of recycled content through various initiatives. These include landfill diversion rates, transparency regarding recycled content in products, eliminating plastic from refurbished product packaging by 2027, and reducing water usage in corporate facilities and supply chains (Apple, 2023).
+
+References:
+- Apple Inc. (2023). 2023 Environmental Progress Report. Retrieved from https://www.apple.com/environment/report/
+- Apple Inc. (2023). Resources. Retrieved from https://www.apple.com/environment/resources/
+
+[1] "Total million gallons" refers to the total amount of water used in corporate facilities and supply chain.
+[2] "Recycled water" refers to the reused water that is not freshwater.
+[3] "Other alternative sources" include rainwater, greywater, desalinated seawater, and treated wastewater.
+[4] "Supply chain" refers to Apple's supply chain partners' water usage.
+[5] "Landfilled (municipal solid waste)" refers to the waste sent to landfills that is not recycled or composted.
+[6] "Recycled pounds" refer to the weight of materials recycled, and "composted pounds" refer to the weight of organic matter composted.
+[7] "Hazardous waste pounds" refers to the weight of hazardous waste generated in Apple's operations.
+[8] "Waste diverted from landfill metric tons" represents the total amount of waste kept out of landfills through recycling and composting.
+[9] "Product packaging footprint" refers to the environmental impact of Apple's product packaging. 
+ Sub header: 23,535 tonnes recycled"
+5. Human rights and initiatives: "Ongoing voluntary disclosures 
+  At the heart of Apple's sustainable finance approach lies a commitment to using recycled materials in its products while navigating the challenges of traceability, scale, and regulatory barriers.
+
+Traceability is crucial but not always straightforward as the origin of materials may not be readily available (23,535 tonnes recycled, 2023 Environmental Progress Report, p. 31). The company acknowledges this complexity and is working to improve transparency in its supply chain. Scale poses another challenge: using high-quality recycled or renewable materials across components and products necessitates a significant increase in effort (Climate Change Resources, Smarter Chemistry Appendix Introduction, p. 70).
+
+Regulatory barriers can inhibit the ability to recover and move materials for use in new products (Circular Economy Policy, 2023 Environmental Progress Report, p. 70). Apple advocates for policies that enable circular supply chains while enhancing social and environmental protections (ibid.). In the case of aluminum, regulatory barriers can affect technical properties, making it essential for Apple to engage in discussions with other companies and policy makers (Climate Change Resources, Aluminum Regulatory Barriers, p. 31).
+
+Apple is taking a zero-waste approach not only within its own operations but also with suppliers. In China, the company leads environmental protection and energy efficiency working groups to ensure compliance with new regulations and collaborate on future standards (Engagement and Advocacy, 2023 Environmental Progress Report, p. 71).
+
+Achieving change through collective action is a cornerstone of Apple's sustainable finance strategy. The company shares its experiences and contributes to collaborative efforts on environmental issues (Engagement and Advocacy, 2023 Environmental Progress Report, p. 71). Apple also engages in policy advocacy and efficiency efforts that contribute to the reduction of carbon emissions in its supply chain. For instance, the company's Supplier Energy Efficiency Program, launched in 2015, helps suppliers optimize their energy use, reducing carbon emissions from manufacturing (Climate Change Resources, Supplier Energy Efficiency Program, p. 31).
+
+Apple is committed to eliminating plastics from its packaging by 2025 through partnerships with organizations like the Ellen MacArthur Foundation (2023 Environmental Progress Report, p. 70). The company's dedication to energy efficiency and reducing carbon emissions in its supply chain has led to significant progress: its suppliers avoided more than 1.3 million annualized metric tons of supply chain carbon emissions in 2022 (Climate Change Resources, Supplier Energy Efficiency Program, p. 31). 
+ Sub header: policies 
+  Title: Apple's Commitment to Sustainable Financing and ESG Policies in Renewable Energy and Biodiversity Conservation
+
+Apple, a global technology leader, is recognized for its unwavering commitment to sustainable financing and Environmental, Social, and Governance (ESG) policies. This section highlights Apple's initiatives in renewable energy management and biodiversity conservation, as presented in the 2017 Verra registry project and the 2023 Environmental Progress Report [1][2].
+
+Apple's dedication to sustainability extends beyond its products, reaching towards preserving iconic African landscapes. The company is involved in a project that protects high-value wildlife areas while addressing development needs of Indigenous and local communities [1]. This initiative emphasizes the significance of balancing economic growth with ecological integrity.
+
+Apple's renewable energy management is another testament to its sustainable financing practices. For instance, the company's data center in Prineville, Oregon, optimizes renewable energy generation and demand management through various strategies such as on-site solar power and indirect evaporative cooling [2]. This approach helped avoid over 145,000 metric tons of CO2e during the fiscal year [2].
+
+In addition, Apple's data center in Reno, Nevada, takes advantage of the mild climate for server cooling and utilizes indirect evaporative cooling when outside air is too warm [2]. The energy consumption statistics for 2022 show that 100% of Apple's renewable energy allocation comes from its solar projects compared to the default grid mix which is predominantly coal-reliant [2].
+
+Appraisals of Apple's corporate packaging fiber and plastic footprint confirm their accuracy, ensuring transparency in reporting fiber and plastic data [3]. These findings highlight Apple's ongoing commitment towards minimizing carbon emissions and promoting a circular economy.
+
+References:
+[1] Verra Registry. (2017). Project Detail: VCS/1408. Retrieved from https://registry.verra.org/app/projectDetail/VCS/1408
+[2] Apple Inc. (2023). Environmental Progress Report 2023: Climate Change, Resources, Smarter Chemistry, Engagement and Advocacy, Appendix. Retrieved from https://www.apple.com/environment/reports-and-data/progress-report/appendix/
+[3] Fraunhofer IZM GmbH. (2023). Review: Corporate Packaging Fiber and Plastic Footprint. In Apple Inc., Environmental Progress Report 2023: Climate Change, Resources, Smarter Chemistry, Engagement and Advocacy, Appendix. Retrieved from https://www.apple.com/environment/reports-and-data/progress-report/appendix/ 
+ Sub header: and programs" 
+  Title: Apple's Commitment to Sustainable Financing and ESG: Protecting the Environment and Empowering Communities
+
+Apple's approach to sustainable financing and Environmental, Social, and Governance (ESG) initiatives is evident in its projects that prioritize ecological conservation and the development needs of local communities. One notable example is Apple's partnership with Verra for a project aimed at maintaining the ecological integrity of an iconic African landscape (project no. 1408 on the Verra registry). This endeavor protects a high-value wildlife and biodiversity area while supporting the needs of Indigenous and local communities [1].
+
+In alignment with its commitment to reducing carbon footprint, Apple's data centers employ innovative cooling techniques to minimize their environmental impact. For instance, Apple's Reno data center in Nevada utilizes outside air for cooling whenever possible and employs indirect evaporative cooling when necessary [2]. Renewable energy is another significant aspect of Apple's sustainability initiatives. In 2022, the Reno data center consumed 419 million kWh of electricity, with 75% coming from renewable sources through Apple's solar projects [3].
+
+Storage plays a crucial role in managing the renewable energy generation and the building's energy use to optimize demand management and ensure uninterrupted energy reliability against local grid outages [4]. Apple is committed to reducing its reliance on traditional energy sources, as evident from its 2022 energy data where coal accounted for only 16% of its total energy mix, while renewable energy sources accounted for 75% [3].
+
+Moreover, Apple has taken strides towards minimizing its fiber and plastic footprint. Following a comprehensive review by Fraunhofer IZM, it was determined that the corporate packaging fiber and plastic footprint data is an accurate representation of the facts [5]. This dedication to transparency in reporting environmental impacts highlights Apple's commitment to sustainability and ESG principles.
+
+References:
+[1] verra.org/app/projectDetail/VCS/1408
+[2] 2023 Environmental Progress Report, Climate Change Resources, Smarter Chemistry Engagement and Advocacy Introduction Appendix, p. 78
+[3] 2023 Environmental Progress Report, Climate Change Resources, Smarter Chemistry Engagement and Advocacy Introduction Appendix, p. 90, 95
+[4] 2023 Environmental Progress Report, Climate Change Resources, Smarter Chemistry Engagement and Advocacy Introduction Appendix, p. 86
+[5] 2023 Environmental Progress Report, Climate Change Resources, Smarter Chemistry Engagement and Advocacy Introduction Appendix, p. 107 
+ 
