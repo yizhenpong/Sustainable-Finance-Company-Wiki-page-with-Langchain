@@ -45,7 +45,6 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     start_time = time.time()
     loader = PyPDFLoader(dh.get_SR_file_path(company_symbol))
     pages = loader.load_and_split()
-    pages = pages[:3]
 
     #===== to run RAG + ToC ========= start ==========
     if pageRange != "-1":
@@ -120,7 +119,18 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
         | output_parser
     )
 
-    company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
+    try:
+        company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
+    except:
+        # to deal w JSON decode error
+        rag_chain0 = (
+        {"context": retriever | format_docs, "fields": RunnablePassthrough()}
+        | rag_prompt_custom0
+        | llm
+        | StrOutputParser()
+        )
+        company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
+
     dh.write_output(company_symbol,"Header: Company_info","Company_info", header=True, ToC=ToCStatus)
     dh.write_output(company_symbol,company_info_key_val_pairs,"Company_info",ToC=ToCStatus)
     print("completed stage 2a of RAG -- General company info")
@@ -253,3 +263,6 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     ##############################################################################################################################
 
 
+if __name__ == '__main__':
+    # run_wiki_gen_base("CCEP")
+    pass

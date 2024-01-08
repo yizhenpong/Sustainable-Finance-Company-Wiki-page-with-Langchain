@@ -116,10 +116,12 @@ def gen_ToC(company_symbol):
     TableOfContents = SimpleSequentialChain(chains=[rag_chain4, ToC_ascending_chain], verbose=True)
     dh.write_output(company_symbol,TableOfContents, "TableOfContents", ToC=True)
     print(f"table of contents of saved!!!")
-
     print("completed generation of ToC")
 
-gen_ToC("CCEP")
+
+
+
+# gen_ToC("CCEP")
 
 # def filter_from_ToC(company_symbol):
 
