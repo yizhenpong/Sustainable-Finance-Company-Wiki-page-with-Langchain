@@ -42,16 +42,17 @@ from operator import itemgetter
 from wiki_gen_ToC import gen_outline_from_ToC
 
 ############################################################################################################################## 
-def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
+def run_wiki_gen_base(company_symbol,ToCStatus = False,vectorstore="does not exist"):
     ''' PART 1 - Indexing (load, split, store)'''
     # company_symbol = "CCEP"
     start_time = time.time()
-    loader = PyPDFLoader(dh.get_SR_file_path(company_symbol))
-    pages = loader.load_and_split()
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-    all_splits = text_splitter.split_documents(pages)
-    vectorstore = Chroma.from_documents(documents=all_splits, embedding=OllamaEmbeddings())
-    print("created vectorstore...")
+    if vectorstore=="does not exist":
+        loader = PyPDFLoader(dh.get_SR_file_path(company_symbol))
+        pages = loader.load_and_split()
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
+        all_splits = text_splitter.split_documents(pages)
+        vectorstore = Chroma.from_documents(documents=all_splits, embedding=OllamaEmbeddings())
+        print("created vectorstore...")
     index_time = time.time()
     print("completed stage 1 of RAG -- Indexing (load, split, store)")
 
@@ -272,6 +273,23 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     end_time = time.time()
     save_time(company_symbol, start_time, index_time, end_time,ToCStatus=ToCStatus)
 
+
+    if not ToCStatus:
+        print(f"""
+          #====================================================== 
+          # RAG + ToC function has started for {company_symbol}
+          #====================================================== """)
+        
+        run_wiki_gen_base(company_symbol,ToCStatus=True,vectorstore=vectorstore)
+        
+        print(f"""
+          #====================================================== 
+          # RAG + ToC function has completed for {company_symbol}
+          #
+          # Whole run completed!
+          #
+          #====================================================== """)
+
     #===========================
 
     print("setting up for new run of RAG -- ESG Overview")
@@ -283,4 +301,18 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
 
 if __name__ == '__main__':
     # run_wiki_gen_base("CCEP")
-    pass
+    # print(dh.get_all_companies()['Symbol'])
+    for symbol in dh.get_all_companies()['Symbol']:
+        if symbol == "AAPL":
+            print(f"""
+                #====================================================== 
+                # RAG function has started for {symbol}
+                #====================================================== """)
+
+            run_wiki_gen_base(symbol)
+
+            print(f"""
+                #====================================================== 
+                # RAG function has completed for {symbol}
+                #====================================================== """)
+        
