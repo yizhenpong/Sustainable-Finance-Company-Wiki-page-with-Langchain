@@ -67,74 +67,140 @@ https://python.langchain.com/docs/modules/chains/document/map_reduce
 ############################################################################################################################# 
 
 
-def gen_ToC(company_symbol):
+def gen_outline_from_ToC(company_symbol,first_three_pages):
     ''' PART 1 - Indexing (load, split, store)'''
-    loader = PyPDFLoader(dh.get_SR_file_path(company_symbol))
-    pages = loader.load_and_split()
-    pages = pages[:3]  # intentional - guess that table of contents is at the front
+    # loader = PyPDFLoader(dh.get_SR_file_path(company_symbol))
+    # pages = loader.load_and_split()
+    # pages = pages[:3]  
+    # ^ intentional - guess that table of contents is at the front - about 6000 words? (within mistral 8K context window)
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-    all_splits = text_splitter.split_documents(pages)
-    vectorstore = Chroma.from_documents(documents=all_splits, embedding=OllamaEmbeddings())
+    all_splits = text_splitter.split_documents(first_three_pages)
+    # vectorstore = Chroma.from_documents(documents=all_splits, embedding=OllamaEmbeddings())
     print("created vectorstore...")
     print("completed stage 1 of ToC -- Indexing (load, split, store)")
 
     def format_docs(docs):
         return "\n\n".join(doc.page_content for doc in docs)
+    
+    y = format_docs(all_splits) # just throw everything in
+
+    #===========================
+    '''define llms'''
+
+    llm = Ollama(model='mistral',
+            system="You are an expert at creating structured data",
+                callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
+    
+    # increase temp to improve creativity
+    llm2 = Ollama(model='mistral',
+            system="""You are an expert at sustainable finance, ESG evaluation, 
+                    and a critical thinker that can quickly filter out irrelevant information and pinpoint key ideas""",
+            temperature = 2,
+                callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
 
     ############################################################################################################################# 
-    '''generating table of contents'''
+    '''chain of thought implementation'''
 
-    template4 = """Extract {something} from this context: {context}
+    templateTOC1 = """Extract the table of contents from this context: {first_three_pages_of_report}
                     Locate section headers and find the page references.
                     and output key value pairs, where key = section_name, value = page_number.
                     Ensure that the table of contents is ordered based on ascending value"""
-    
-    llm = Ollama(model='mistral',
-                system="You are an expert at creating structured data",
-                    callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
-    
-    retriever = vectorstore.as_retriever()
-    print(retriever.get_relevant_documents("table of contents"))
-    rag_prompt_custom4 = PromptTemplate(
-        template= template4,
-        input_variables=["context"])
-    # rag_chain4 = (
-    #     {"context": retriever | format_docs}
-    #     | rag_prompt_custom4
-    #     | llm
-    #     | StrOutputParser() 
-    # )
-    rag_chain4 = (
-        {"context": retriever | format_docs}
-        | rag_prompt_custom4
-        | llm
-        | StrOutputParser() 
+
+    promptTOC1 = PromptTemplate(
+        input_variables=["first_three_pages_of_report"],
+        template = templateTOC1                      
     )
-    template5 = """Given this table of contents in key,value pairs where key = section_name, value = page_number,
-                    order it by the page number in ascending order: {table_of_contents}"""
-
-    ToC_ascending_prompt = PromptTemplate(input_variables=["table_of_contents"],
-        template=template5)
-    ToC_ascending_chain = LLMChain(llm=llm, prompt=ToC_ascending_prompt, output_key = "table_of_contents_asc")
-
-    overall_chain = SequentialChain(
-        chains= [rag_chain4,ToC_ascending_chain],
-        input_variables=["context"],
-        output_variables=["table_of_contents_asc"],
+    chainTOC1 = LLMChain(
+        llm=llm,
+        prompt=promptTOC1,
+        output_key="extracted_TOC"
     )
+    #===========================
+    output_parser = CommaSeparatedListOutputParser()
+    format_instructions = output_parser.get_format_instructions()
 
-    # TableOfContents_unclean = rag_chain4.invoke("")
-    # dh.write_output(company_symbol,TableOfContents_unclean,"TableOfContents_unordered",ToC=True)
-    TableOfContents = overall_chain.invoke("")
-    dh.write_output(company_symbol,TableOfContents, "TableOfContents", ToC=True)
-    print(f"table of contents of saved!!!")
-    print("completed generation of ToC")
+    templateTOC2 = """You are tasked to find material topics for this company.\n
+                    Material topics are topics that represent an organization's most significant impacts on the economy, 
+                    environment, and people, including impacts on their human rights. \n
+                    
+                    Based on this extracted table of contents, delete rows that do not seem like material topics.
+                    These include headers like our company, regions.
+
+                    Then return the cleaned table of contents in list format without the page numbers: {extracted_TOC}
+                    Please format your answer based on these format instructions:""" + format_instructions
+
+    promptTOC2 = PromptTemplate(
+        input_variables=["extracted_TOC"],
+        template = templateTOC2                      
+    )
+    chainTOC2 = LLMChain(
+        llm=llm2,
+        prompt=promptTOC2,
+        output_key="cleaned_headers"
+    )
+    
+    #===========================
+
+    # introduce concept of material topics
+    templateTOC3 = """You are now tasked to find material topics for this company.\n
+
+                    Material topics are topics that represent an organization's most significant impacts on the economy, 
+                    environment, and people, including impacts on their human rights. 
+                    To simply put, material topics are overarching themes that can describe the 
+                    Environmental Social Governance (ESG) approach of a company. \n
+
+                    Based on this list, prioritise which are the most important and unique approaches.
+                    Eliminate those that are less important. 
+                    Return the reordered list from highest to lowest priority: {cleaned_headers} \n""" 
+
+    promptTOC3 = PromptTemplate(
+        input_variables=["cleaned_headers"],
+        template = templateTOC3                     
+    )
+    chainTOC3 = LLMChain(
+        llm=llm2,
+        prompt=promptTOC3,
+        output_key="material_topics"
+    )
 
     #===========================
 
-    print("setting up for new run of ToC ----- ")
-    vectorstore.delete_collection()
-    print(f"deleted information in vectorstore for {company_symbol}")
+    # use back structured llm
+    templateTOC4 = """
+                    Theres a list in this text: {material_topics} \n 
+                    Extract the list and format your answer based on these format instructions:""" + format_instructions
+
+    promptTOC4 = PromptTemplate(
+        input_variables=["material_topics"],
+        template = templateTOC4                     
+    )
+    chainTOC4 = LLMChain(
+        llm=llm,
+        prompt=promptTOC4,
+        output_key="material_topics_lst",
+        output_parser=CommaSeparatedListOutputParser()
+    )
+    full_chain = SequentialChain(
+        chains=[chainTOC1, chainTOC2, chainTOC3,chainTOC4],
+        input_variables=["first_three_pages_of_report"],
+        output_variables=["material_topics", "extracted_TOC", "cleaned_headers","material_topics_lst"],
+        verbose=True)
+
+    material_topics = full_chain(y)
+    # print(type(material_topics))
+    # print(material_topics.keys()) #dict_keys(['first_three_pages_of_report', 'material_topics', 'extracted_TOC', 'cleaned_headers', 'material_topics_lst'])
+
+   
+    dh.write_output(company_symbol,material_topics['material_topics'], "ToC_ESG_approach_outline", ToC=True)
+    print("wrote TOC outline")
+
+    dh.write_output(company_symbol,'Header: extracted_TOC \n', "ToC_ESG_approach_outline_process", ToC=True, header=True)
+    dh.write_output(company_symbol,material_topics['extracted_TOC'], "ToC_ESG_approach_outline_process", ToC=True)
+    dh.write_output(company_symbol,'Header: cleaned_headers \n', "ToC_ESG_approach_outline_process", ToC=True, header=True)
+    dh.write_output(company_symbol,material_topics['cleaned_headers'], "ToC_ESG_approach_outline_process", ToC=True)
+    print("wrote TOC outline thought process")
+
+    return material_topics["material_topics_lst"]
 
     ##############################################################################################################################
 
@@ -142,7 +208,25 @@ def gen_ToC(company_symbol):
 
 
 
-gen_ToC("CCEP")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # def filter_from_ToC(company_symbol):
 

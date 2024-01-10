@@ -38,6 +38,9 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain.chains import LLMChain, RetrievalQA
 from operator import itemgetter
 
+'''to implement TOC+RAG'''
+from wiki_gen_ToC import gen_outline_from_ToC
+
 ############################################################################################################################## 
 def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     ''' PART 1 - Indexing (load, split, store)'''
@@ -45,23 +48,11 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     start_time = time.time()
     loader = PyPDFLoader(dh.get_SR_file_path(company_symbol))
     pages = loader.load_and_split()
-
-    #===== to run RAG + ToC ========= start ==========
-    if pageRange != "-1":
-        try:
-            pages = pages[pageRange]
-        except:
-            return dh.write_output(company_symbol, 
-                                   f"No point running RAG + ToC approach, unable to slice pages","Company_info",ToC=ToCStatus)
-    #===== to run RAG + ToC ========= end ========== 
-    
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     all_splits = text_splitter.split_documents(pages)
-
     vectorstore = Chroma.from_documents(documents=all_splits, embedding=OllamaEmbeddings())
     print("created vectorstore...")
     index_time = time.time()
-
     print("completed stage 1 of RAG -- Indexing (load, split, store)")
 
     ############################################################################################################################## 
@@ -74,7 +65,7 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
                  system="You are an expert at sustainable finance and ESG evaluation",
                     callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
 
-    retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 6})
+    retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 10})
     # methods to consider hyde, cohere reranker etc
     # https://python.langchain.com/docs/templates/hyde?ref=blog.langchain.dev
     # https://python.langchain.com/docs/integrations/retrievers/cohere-reranker?ref=blog.langchain.dev 
@@ -87,61 +78,62 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     #==================================================
     '''retrieve & generate CONTENT for PART A - GENERAL COMPANY INFO'''
 
-    interested_fields = ["Company name", "ISIN Code", "Headquarters", "founded in", "founded by", "Important People",
-                        "Website", "Sustainability Report Name"]
-    response_schemas = [
-        ResponseSchema(name=interested_fields[0], description=f"Official {interested_fields[0]}"),
-        ResponseSchema(name=interested_fields[1], description=f"International Securities Identification Number code, which is a 12-character alphanumeric code"),
-        ResponseSchema(name=interested_fields[2], description=f"Official {interested_fields[2]}"),
-        ResponseSchema(name=interested_fields[3], description=f"The place where company was {interested_fields[3]}"),
-        ResponseSchema(name=interested_fields[4], description=f"Who founded this company?"),
-        ResponseSchema(name=interested_fields[5], description=f"Give a list of {interested_fields[5]} who are vital to the compay. Can be CEO or Chief Sustainability Officer"),
-        ResponseSchema(name=interested_fields[6], description=f"Main company {interested_fields[6]}"),
-        ResponseSchema(name=interested_fields[7], description=f"{interested_fields[6]} may vary from corporate social responsibility report etc")
-    ]
-    output_parser = StructuredOutputParser.from_response_schemas(response_schemas)
-    format_instructions = output_parser.get_format_instructions()
+    if not ToCStatus: # no need to run for ToC version
+        interested_fields = ["Company name", "ISIN Code", "Headquarters", "founded in", "founded by", "Important People",
+                            "Website", "Sustainability Report Name"]
+        response_schemas = [
+            ResponseSchema(name=interested_fields[0], description=f"Official {interested_fields[0]}"),
+            ResponseSchema(name=interested_fields[1], description=f"International Securities Identification Number code, which is a 12-character alphanumeric code"),
+            ResponseSchema(name=interested_fields[2], description=f"Official {interested_fields[2]}"),
+            ResponseSchema(name=interested_fields[3], description=f"The place where company was {interested_fields[3]}"),
+            ResponseSchema(name=interested_fields[4], description=f"Who founded this company?"),
+            ResponseSchema(name=interested_fields[5], description=f"Give a list of {interested_fields[5]} who are vital to the compay. Can be CEO or Chief Sustainability Officer"),
+            ResponseSchema(name=interested_fields[6], description=f"Main company {interested_fields[6]}"),
+            ResponseSchema(name=interested_fields[7], description=f"{interested_fields[6]} may vary from corporate social responsibility report etc")
+        ]
+        output_parser = StructuredOutputParser.from_response_schemas(response_schemas)
+        format_instructions = output_parser.get_format_instructions()
 
-    template0 = """You are tasked to create the general company information section for the sustainable finance Wikipedia page of a company \n
-            The company's stock code is:"""+company_symbol+"""\n
-            You should provide the answer as key,value pairs for these fields: {fields} \n
-            You may use your knowledge and this context to help formulate your answer:  {context}
-            If you do not know the answer, please write NA instead of making up an answer.
-            Please format your answer based on these format instructions: {format_instructions}"""  
-    
-    rag_prompt_custom0 = PromptTemplate(
-        template = template0,
-        input_variables=["context", "fields"],
-        partial_variables={"format_instructions": format_instructions})
-    
-    rag_chain0 = (
-        {"context": retriever | format_docs, "fields": RunnablePassthrough()}
-        | rag_prompt_custom0
-        | llm
-        | output_parser
-    )
+        template0 = """You are tasked to create the general company information section for the sustainable finance Wikipedia page of a company \n
+                The company's stock code is:"""+company_symbol+"""\n
+                You should provide the answer as key,value pairs for these fields: {fields} \n
+                You may use your knowledge and this context to help formulate your answer:  {context}
+                If you do not know the answer, please write NA instead of making up an answer.
+                Please format your answer based on these format instructions: {format_instructions}"""  
+        
+        rag_prompt_custom0 = PromptTemplate(
+            template = template0,
+            input_variables=["context", "fields"],
+            partial_variables={"format_instructions": format_instructions})
+        
+        rag_chain0 = (
+            {"context": retriever | format_docs, "fields": RunnablePassthrough()}
+            | rag_prompt_custom0
+            | llm
+            | output_parser
+        )
 
-    try:
-        company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
-        dh.write_output(company_symbol,company_info_key_val_pairs,"Company_info", json_type=True, ToC=ToCStatus)
-    except:
-        # to deal w JSON decode error, invoke for 5 more attempts
-        attempts = 5
-        for _ in range(attempts):
-            try:
-                company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
-                dh.write_output(company_symbol,company_info_key_val_pairs,"Company_info", json_type=True, ToC=ToCStatus)
-                break
-            except:
-                # If really cannot decode, then directly parse out as string and save to txt file
-                rag_chain0 = (
-                    {"context": retriever | format_docs, "fields": RunnablePassthrough()}
-                    | rag_prompt_custom0
-                    | llm
-                    | StrOutputParser()
-                )
-                company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
-                dh.write_output(company_symbol,company_info_key_val_pairs,"Company_info", ToC=ToCStatus)
+        try:
+            company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
+            dh.write_output(company_symbol,company_info_key_val_pairs,"Company_info", json_type=True, ToC=ToCStatus)
+        except:
+            # to deal w JSON decode error, invoke for 5 more attempts
+            attempts = 5
+            for _ in range(attempts):
+                try:
+                    company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
+                    dh.write_output(company_symbol,company_info_key_val_pairs,"Company_info", json_type=True, ToC=ToCStatus)
+                    break
+                except:
+                    # If really cannot decode, then directly parse out as string and save to txt file
+                    rag_chain0 = (
+                        {"context": retriever | format_docs, "fields": RunnablePassthrough()}
+                        | rag_prompt_custom0
+                        | llm
+                        | StrOutputParser()
+                    )
+                    company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
+                    dh.write_output(company_symbol,company_info_key_val_pairs,"Company_info", ToC=ToCStatus)
 
 
     print("completed stage 2a of RAG -- General company info")
@@ -179,10 +171,22 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
         print("completed stage 2c(i) of RAG -- ESG Approach outline")
 
     if ToCStatus:
-        # do some retrieval of Table of Contents
+        '''chain of thought implemented'''
+        # do some retrieval of Table of Contents 
         # then generate the outline based on ToC
         # just make sure that u use CommaSeparatedListOutputParser()
-        pass
+        
+        print(f"""
+          #====================================================== 
+          # TOC chain of thought portion started for {company_symbol}
+          #====================================================== """)
+        
+        outline_ls = gen_outline_from_ToC(company_symbol, pages[:3])
+
+        print(f"""
+          #====================================================== 
+          # TOC chain of thought portion ended for {company_symbol} outline retrieved!
+          #====================================================== """)
 
 
     #==================================================
@@ -231,36 +235,37 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
         - ESG reporting frameworks
     '''
 
-    keywords = ["sustainable commitments", "2050", "2030", "carbon zero", "net zero", "achievements", "reporting frameworks",
-                "IFRS", "GRI", "SASB", "SDG", "CDP"]
-    question3 = f"""What are their sustainable commitments, achievements, and reporting standards?
-                You may consider the following keywords: {keywords}""" 
+    if not ToCStatus: # no need to run for ToC version
+        keywords = ["sustainable commitments", "2050", "2030", "carbon zero", "net zero", "achievements", "reporting frameworks",
+                    "IFRS", "GRI", "SASB", "SDG", "CDP"]
+        question3 = f"""What are their sustainable commitments, achievements, and reporting standards?
+                    You may consider the following keywords: {keywords}""" 
 
 
-    template3 = """You are tasked to create the ESG overview section for the sustainable finance Wikipedia page of a company \n
-            You should write one to two paragraphs answering this question: {question} \n
-            Include just a line that talks about the themes that was covered earlier: {themes} \n 
-            if the information does not exist, just say so, you must only use information from this context:  {context}"""  
+        template3 = """You are tasked to create the ESG overview section for the sustainable finance Wikipedia page of a company \n
+                You should write one to two paragraphs answering this question: {question} \n
+                Include just a line that talks about the themes that was covered earlier: {themes} \n 
+                if the information does not exist, just say so, you must only use information from this context:  {context}"""  
 
-    rag_prompt_custom3 = PromptTemplate(
-        template= template3,
-        input_variables=["question", "context"])
+        rag_prompt_custom3 = PromptTemplate(
+            template= template3,
+            input_variables=["question", "context"])
 
-    rag_chain3 = (
-        {
-            "context": itemgetter("question")| retriever,
-            "question": itemgetter("question"),
-            "themes": itemgetter("themes"),
-        }
-        | rag_prompt_custom3
-        | llm
-        | StrOutputParser() 
-    )
-    ESG_overview = rag_chain3.invoke({"question":question3, "themes":str(outline_ls)})
-    dh.write_output(company_symbol,"Header: ESG_overview","ESG_overview", header=True,ToC=ToCStatus)
-    dh.write_output(company_symbol,ESG_overview,"ESG_overview",ToC=ToCStatus)
+        rag_chain3 = (
+            {
+                "context": itemgetter("question")| retriever,
+                "question": itemgetter("question"),
+                "themes": itemgetter("themes"),
+            }
+            | rag_prompt_custom3
+            | llm
+            | StrOutputParser() 
+        )
+        ESG_overview = rag_chain3.invoke({"question":question3, "themes":str(outline_ls)})
+        dh.write_output(company_symbol,"Header: ESG_overview","ESG_overview", header=True,ToC=ToCStatus)
+        dh.write_output(company_symbol,ESG_overview,"ESG_overview",ToC=ToCStatus)
 
-    print("completed stage 2b of RAG -- ESG Overview")
+        print("completed stage 2b of RAG -- ESG Overview")
     
 
     #############################################################################################################################
