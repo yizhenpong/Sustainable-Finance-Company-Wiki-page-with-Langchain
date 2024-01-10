@@ -1,3 +1,0 @@
-Header: Company_info 
- {'Company name': 'The Coca-Cola Company', 'ISIN Code': 'US0342561071', 'Headquarters': 'Atlanta, Georgia, USA', 'founded in': 'May 8, 1886', 'founded by': 'Asa Candler', 'Important People': 'James Quincey (CEO)', 'Website': 'https://www.coca-colacompany.com/', 'Sustainability Report Name': 'Coca-Cola 2022 Sustainability Report'} 
- 

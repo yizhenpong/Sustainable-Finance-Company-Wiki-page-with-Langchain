@@ -1,3 +1,0 @@
-Header: Company_info 
- {'Company name': 'Baidu, Inc.', 'ISIN Code': 'US:BIDU', 'Headquarters': 'Beijing, China', 'founded in': '2000', 'founded by': 'Robin Li and Eric Xu', 'Important People': 'Robin Li (CEO)', 'Website': 'https://www.baidu.com/', 'Sustainability Report Name': 'Baidu Environmental, Social and Governance (ESG) Report'} 
- 

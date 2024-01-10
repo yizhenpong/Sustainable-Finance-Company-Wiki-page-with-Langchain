@@ -84,44 +84,65 @@ def gen_ToC(company_symbol):
     ############################################################################################################################# 
     '''generating table of contents'''
 
-    template4 = """You are tasked to extract the table of contents with key value pairs 
-                    where key = section_name, value = page_number.
-                    Only use information from this context to generate text: {context}
-                    Locate all the major section headers and find the page references. 
+    template4 = """Extract {something} from this context: {context}
+                    Locate section headers and find the page references.
+                    and output key value pairs, where key = section_name, value = page_number.
                     Ensure that the table of contents is ordered based on ascending value"""
     
     llm = Ollama(model='mistral',
-                system="You are an expert at sustainable finance and ESG evaluation",
+                system="You are an expert at creating structured data",
                     callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
     
     retriever = vectorstore.as_retriever()
+    print(retriever.get_relevant_documents("table of contents"))
     rag_prompt_custom4 = PromptTemplate(
         template= template4,
         input_variables=["context"])
+    # rag_chain4 = (
+    #     {"context": retriever | format_docs}
+    #     | rag_prompt_custom4
+    #     | llm
+    #     | StrOutputParser() 
+    # )
     rag_chain4 = (
         {"context": retriever | format_docs}
         | rag_prompt_custom4
         | llm
         | StrOutputParser() 
     )
+    template5 = """Given this table of contents in key,value pairs where key = section_name, value = page_number,
+                    order it by the page number in ascending order: {table_of_contents}"""
 
     ToC_ascending_prompt = PromptTemplate(input_variables=["table_of_contents"],
-        template="""Given a table of contents in key,value pairs where key = section_name, value = page_number,
-                    order it by the page number in ascending order.
-                    This is the table of contents: {table_of_contents}""")
+        template=template5)
+    ToC_ascending_chain = LLMChain(llm=llm, prompt=ToC_ascending_prompt, output_key = "table_of_contents_asc")
 
-    ToC_ascending_chain = LLMChain(llm=llm, prompt=ToC_ascending_prompt)
-    TableOfContents_unclean = rag_chain4.invoke("")
-    dh.write_output(company_symbol,TableOfContents_unclean,"TableOfContents_unordered",ToC=True)
-    TableOfContents = SimpleSequentialChain(chains=[rag_chain4, ToC_ascending_chain], verbose=True)
+    overall_chain = SequentialChain(
+        chains= [rag_chain4,ToC_ascending_chain],
+        input_variables=["context"],
+        output_variables=["table_of_contents_asc"],
+    )
+
+    # TableOfContents_unclean = rag_chain4.invoke("")
+    # dh.write_output(company_symbol,TableOfContents_unclean,"TableOfContents_unordered",ToC=True)
+    TableOfContents = overall_chain.invoke("")
     dh.write_output(company_symbol,TableOfContents, "TableOfContents", ToC=True)
     print(f"table of contents of saved!!!")
     print("completed generation of ToC")
 
+    #===========================
+
+    print("setting up for new run of ToC ----- ")
+    vectorstore.delete_collection()
+    print(f"deleted information in vectorstore for {company_symbol}")
+
+    ##############################################################################################################################
 
 
 
-# gen_ToC("CCEP")
+
+
+gen_ToC("CCEP")
 
 # def filter_from_ToC(company_symbol):
 
