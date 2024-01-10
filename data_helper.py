@@ -76,7 +76,7 @@ def batch_create_output_folder(main_f_path):
 
 def write_output(symbol,text_output,
                  portion=["ESG_approach","ESG_approach_outline", "ESG_overview", 
-                          "Company_info", "TableOfContents","ToC_only_ESG_approach_outline", "TableOfContents_unordered"], 
+                          "Company_info","ToC_ESG_approach_outline", "ToC_ESG_approach_outline_process"], 
                  header = False, list_type = False, json_type = False, ToC = False):
     if ToC:
         if not json_type:
