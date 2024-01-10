@@ -104,7 +104,8 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
 
     template0 = """You are tasked to create the general company information section for the sustainable finance Wikipedia page of a company \n
             You should provide the answer as key,value pairs for these fields: {fields} \n
-            Only use information from this context, if you don't know the answer, use the value NA and do not make up an answer:  {context}
+            You may use your knowledge and this context to help formulate your answer:  {context}
+            If you do not know the answer, please write NA instead of making up an answer.
             Please format your answer based on these format instructions: {format_instructions}"""  
     
     rag_prompt_custom0 = PromptTemplate(
@@ -253,8 +254,10 @@ def run_wiki_gen_base(company_symbol,pageRange = "-1",ToCStatus = False):
     
 
     ##############################################################################################################################
-    end_time = time.time()
-    save_time(company_symbol, start_time, index_time, end_time,ToCStatus=ToCStatus)
+    # end_time = time.time()
+    # save_time(company_symbol, start_time, index_time, end_time,ToCStatus=ToCStatus)
+
+    #===========================
 
     print("setting up for new run of RAG -- ESG Overview")
     vectorstore.delete_collection()
