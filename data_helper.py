@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import os
 import re
+import json
 
 '''
 Getting data from csv file 'company_info.csv'
@@ -76,15 +77,24 @@ def batch_create_output_folder(main_f_path):
 def write_output(symbol,text_output,
                  portion=["ESG_approach","ESG_approach_outline", "ESG_overview", 
                           "Company_info", "TableOfContents","ToC_only_ESG_approach_outline", "TableOfContents_unordered"], 
-                 header = False, list_type = False, title = False, ToC = False):
+                 header = False, list_type = False, json_type = False, ToC = False):
     if ToC:
-        file_path = f"output_ToC/{symbol}/{portion}.txt"
+        if not json_type:
+            file_path = f"output_ToC/{symbol}/{portion}.txt"
+        else:
+            file_path = f"output_ToC/{symbol}/{portion}.json"
     if not ToC:
-        file_path = f"output_base/{symbol}/{portion}.txt"
+        if not json_type:
+            file_path = f"output_base/{symbol}/{portion}.txt"
+        else:
+            file_path = f"output_base/{symbol}/{portion}.json"
     if list_type:
         with open(file_path, 'a') as file:
             [file.write(f"{item}\n ") for item in text_output]
             print(f"\n {symbol} list in text_output saved into {file_path} ")
+    elif json_type:
+        with open(file_path,"w") as file:
+            json.dump(text_output,file)
     else:
         with open(file_path, 'a') as file:
             file.write(f"{text_output} \n ")
@@ -135,10 +145,10 @@ def convert_to_list(input_string):
 
     return output_list
 
-def get_ToC(symbol):
-    file_path = f"output_ToC/{symbol}/TableOfContents.txt"
+def get_ToC_f_path(symbol):
+    return f"output_ToC/{symbol}/TableOfContents.txt"
 
-    
+
 
 
 
