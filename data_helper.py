@@ -103,50 +103,42 @@ def write_output(symbol,text_output,
         else:
             print(f"\n {symbol} output saved into {file_path} \n")
 
-def get_filtered_pages(input_string):
-    # Define a regular expression pattern to match "answer:" followed by a list
-    pattern = r"answer:\s*\[([^\]]*)\]"
-
-    # Use re.search to find the pattern in the input string
-    match = re.search(pattern, input_string)
-
-    # If a match is found, return the captured group (the content of the square brackets)
-    if match:
-        text_with_newlines = match.group(1)
-        cleaned_text = text_with_newlines.replace("\n", "")
-        return cleaned_text
+def get_output(symbol, portion=["ESG_approach","ESG_approach_outline", "ESG_overview", 
+                          "Company_info","ToC_ESG_approach_outline", "ToC_ESG_approach_outline_process"], 
+                          type = ["json", "csv", "txt"], ToC = False):
+    if ToC:
+        file_path = f"output_ToC/{symbol}/{portion}.{type}"
     else:
-        # Return None if no match is found
-        return f"""Pls find manually... \n \n
-        #==========================================
-        {input_string}
-        #=========================================="""
+        file_path = f"output_base/{symbol}/{portion}.{type}"
     
-class RangeElement:
-    def __init__(self, value):
-        self.value = value
+    try: 
+        with open(file_path, 'r', encoding='utf-8') as file:
+            output = file.read()
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+        output = None
+    return output
 
-    def __repr__(self):
-        if ':' in self.value:
-            start, end = map(int, self.value.split(':'))
-            return f"{start}:{end}"
-        else:
-            return str(self.value)
 
-def convert_to_list(input_string):
-    # Split the string into individual elements
-    elements = input_string.split(',')
 
-    # Convert each element to the appropriate format
-    output_list = []
-    for element in elements:
-        element = element.strip()
-        output_list.append(RangeElement(element))
+# def get_filtered_pages(input_string):
+#     # Define a regular expression pattern to match "answer:" followed by a list
+#     pattern = r"answer:\s*\[([^\]]*)\]"
 
-    return output_list
+#     # Use re.search to find the pattern in the input string
+#     match = re.search(pattern, input_string)
 
-def get_ToC_f_path(symbol):
-    return f"output_ToC/{symbol}/TableOfContents.txt"
+#     # If a match is found, return the captured group (the content of the square brackets)
+#     if match:
+#         text_with_newlines = match.group(1)
+#         cleaned_text = text_with_newlines.replace("\n", "")
+#         return cleaned_text
+#     else:
+#         # Return None if no match is found
+#         return f"""Pls find manually... \n \n
+#         #==========================================
+#         {input_string}
+#         #=========================================="""
 
 
 
@@ -165,9 +157,9 @@ def get_ToC_f_path(symbol):
 ############################################################################################################################## 
 '''main'''
 if __name__ == '__main__':
-    # batch_download()
-    create_folder(main_f_path="output_base")
+    # batch_download() # uncomment to download all sustainabiltiy reports
+    # create_folder(main_f_path="output_base")
     create_folder(main_f_path="output_ToC") # creates base folders
-    batch_create_output_folder("output_base")
+    # batch_create_output_folder("output_base")
     batch_create_output_folder("output_ToC") #creates individual company folders
     pass

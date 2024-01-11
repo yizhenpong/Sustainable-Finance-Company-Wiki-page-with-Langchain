@@ -2,14 +2,15 @@
 instructions:
 - download ollama `https://ollama.ai/download`
     - ollama pull mistral
+    - ollama run yarn-mistral:7b (use this if you would like longer context window)
 - pip install langchain
 
 RAG
 - PART 1) Indexing (load, split, store)
 - PART 2) Retrieving and generation (retrieve, generate)
 
-Dealing with long inputs - selecting top k, possibly using a fine tuned YARN Mistral 7B model
-Dealing with long outputs - use an outline and tackle from top down
+Dealing with long inputs - selecting top k, Rag + ToC (deal directly w table of contents)
+Dealing with long outputs - use an outline and tackle from top down, Rag + ToC (customised outline)
 """
 
 ############################################################################################################################## 
@@ -42,17 +43,17 @@ from operator import itemgetter
 from wiki_gen_ToC import gen_outline_from_ToC
 
 ############################################################################################################################## 
-def run_wiki_gen_base(company_symbol,ToCStatus = False,vectorstore="does not exist"):
+def run_wiki_gen_base(company_symbol,ToCStatus = False):
     ''' PART 1 - Indexing (load, split, store)'''
     # company_symbol = "CCEP"
     start_time = time.time()
-    if vectorstore=="does not exist":
-        loader = PyPDFLoader(dh.get_SR_file_path(company_symbol))
-        pages = loader.load_and_split()
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-        all_splits = text_splitter.split_documents(pages)
-        vectorstore = Chroma.from_documents(documents=all_splits, embedding=OllamaEmbeddings())
-        print("created vectorstore...")
+    # if vectorstore=="does not exist":
+    loader = PyPDFLoader(dh.get_SR_file_path(company_symbol))
+    pages = loader.load_and_split()
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
+    all_splits = text_splitter.split_documents(pages)
+    vectorstore = Chroma.from_documents(documents=all_splits, embedding=OllamaEmbeddings())
+    print("created vectorstore...")
     index_time = time.time()
     print("completed stage 1 of RAG -- Indexing (load, split, store)")
 
@@ -62,9 +63,10 @@ def run_wiki_gen_base(company_symbol,ToCStatus = False,vectorstore="does not exi
     '''
 
     '''open source llm - mistral 7b'''
+    
     llm = Ollama(model='mistral',
-                 system="You are an expert at sustainable finance and ESG evaluation",
-                    callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
+            system="You are an expert at creating structured data",
+                callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
 
     retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 10})
     # methods to consider hyde, cohere reranker etc
@@ -79,62 +81,62 @@ def run_wiki_gen_base(company_symbol,ToCStatus = False,vectorstore="does not exi
     #==================================================
     '''retrieve & generate CONTENT for PART A - GENERAL COMPANY INFO'''
 
-    if not ToCStatus: # no need to run for ToC version
-        interested_fields = ["Company name", "ISIN Code", "Headquarters", "founded in", "founded by", "Important People",
-                            "Website", "Sustainability Report Name"]
-        response_schemas = [
-            ResponseSchema(name=interested_fields[0], description=f"Official {interested_fields[0]}"),
-            ResponseSchema(name=interested_fields[1], description=f"International Securities Identification Number code, which is a 12-character alphanumeric code"),
-            ResponseSchema(name=interested_fields[2], description=f"Official {interested_fields[2]}"),
-            ResponseSchema(name=interested_fields[3], description=f"The place where company was {interested_fields[3]}"),
-            ResponseSchema(name=interested_fields[4], description=f"Who founded this company?"),
-            ResponseSchema(name=interested_fields[5], description=f"Give a list of {interested_fields[5]} who are vital to the compay. Can be CEO or Chief Sustainability Officer"),
-            ResponseSchema(name=interested_fields[6], description=f"Main company {interested_fields[6]}"),
-            ResponseSchema(name=interested_fields[7], description=f"{interested_fields[6]} may vary from corporate social responsibility report etc")
-        ]
-        output_parser = StructuredOutputParser.from_response_schemas(response_schemas)
-        format_instructions = output_parser.get_format_instructions()
+    # if not ToCStatus: # no need to run for ToC version
+    interested_fields = ["Company name", "ISIN Code", "Headquarters", "founded in", "founded by", "Important People",
+                        "Website", "Sustainability Report Name"]
+    response_schemas = [
+        ResponseSchema(name=interested_fields[0], description=f"Official {interested_fields[0]}"),
+        ResponseSchema(name=interested_fields[1], description=f"International Securities Identification Number code, which is a 12-character alphanumeric code"),
+        ResponseSchema(name=interested_fields[2], description=f"Official {interested_fields[2]}"),
+        ResponseSchema(name=interested_fields[3], description=f"The place where company was {interested_fields[3]}"),
+        ResponseSchema(name=interested_fields[4], description=f"Who founded this company?"),
+        ResponseSchema(name=interested_fields[5], description=f"Give a list of {interested_fields[5]} who are vital to the compay. Can be CEO or Chief Sustainability Officer"),
+        ResponseSchema(name=interested_fields[6], description=f"Main company {interested_fields[6]}"),
+        ResponseSchema(name=interested_fields[7], description=f"{interested_fields[6]} may vary from corporate social responsibility report etc")
+    ]
+    output_parser = StructuredOutputParser.from_response_schemas(response_schemas)
+    format_instructions = output_parser.get_format_instructions()
 
-        template0 = """You are tasked to create the general company information section for the sustainable finance Wikipedia page of a company \n
-                The company's stock code is:"""+company_symbol+"""\n
-                You should provide the answer as key,value pairs for these fields: {fields} \n
-                You may use your knowledge and this context to help formulate your answer:  {context}
-                If you do not know the answer, please write NA instead of making up an answer.
-                Please format your answer based on these format instructions: {format_instructions}"""  
-        
-        rag_prompt_custom0 = PromptTemplate(
-            template = template0,
-            input_variables=["context", "fields"],
-            partial_variables={"format_instructions": format_instructions})
-        
-        rag_chain0 = (
-            {"context": retriever | format_docs, "fields": RunnablePassthrough()}
-            | rag_prompt_custom0
-            | llm
-            | output_parser
-        )
+    template0 = """You are tasked to create the general company information section for the sustainable finance Wikipedia page of a company \n
+            The company's stock code is:"""+company_symbol+"""\n
+            You should provide the answer as key,value pairs for these fields: {fields} \n
+            You may use your knowledge and this context to help formulate your answer:  {context}
+            If you do not know the answer, please write NA instead of making up an answer.
+            Please format your answer based on these format instructions: {format_instructions}"""  
+    
+    rag_prompt_custom0 = PromptTemplate(
+        template = template0,
+        input_variables=["context", "fields"],
+        partial_variables={"format_instructions": format_instructions})
+    
+    rag_chain0 = (
+        {"context": retriever | format_docs, "fields": RunnablePassthrough()}
+        | rag_prompt_custom0
+        | llm
+        | output_parser
+    )
 
-        try:
-            company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
-            dh.write_output(company_symbol,company_info_key_val_pairs,"Company_info", json_type=True, ToC=ToCStatus)
-        except:
-            # to deal w JSON decode error, invoke for 5 more attempts
-            attempts = 5
-            for _ in range(attempts):
-                try:
-                    company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
-                    dh.write_output(company_symbol,company_info_key_val_pairs,"Company_info", json_type=True, ToC=ToCStatus)
-                    break
-                except:
-                    # If really cannot decode, then directly parse out as string and save to txt file
-                    rag_chain0 = (
-                        {"context": retriever | format_docs, "fields": RunnablePassthrough()}
-                        | rag_prompt_custom0
-                        | llm
-                        | StrOutputParser()
-                    )
-                    company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
-                    dh.write_output(company_symbol,company_info_key_val_pairs,"Company_info", ToC=ToCStatus)
+    try:
+        company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
+        dh.write_output(company_symbol,company_info_key_val_pairs,"Company_info", json_type=True, ToC=ToCStatus)
+    except:
+        # to deal w JSON decode error, invoke for 5 more attempts
+        attempts = 5
+        for _ in range(attempts):
+            try:
+                company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
+                dh.write_output(company_symbol,company_info_key_val_pairs,"Company_info", json_type=True, ToC=ToCStatus)
+                break
+            except:
+                # If really cannot decode, then directly parse out as string and save to txt file
+                rag_chain0 = (
+                    {"context": retriever | format_docs, "fields": RunnablePassthrough()}
+                    | rag_prompt_custom0
+                    | llm
+                    | StrOutputParser()
+                )
+                company_info_key_val_pairs = rag_chain0.invoke(str(interested_fields))
+                dh.write_output(company_symbol,company_info_key_val_pairs,"Company_info", ToC=ToCStatus)
 
 
     print("completed stage 2a of RAG -- General company info")
@@ -145,31 +147,31 @@ def run_wiki_gen_base(company_symbol,ToCStatus = False,vectorstore="does not exi
     '''
 
     '''(i) retrieve & generate OUTLINE first!!'''   
-    if not ToCStatus:
-        keywords = ["material topics", "sustainability", "environmental", "sustainable", "supply chain", "human rights"]
-        question1 = f"""What is the Environmental Social Governance (ESG) approach of this company? 
-                    You may consider the following keywords: {keywords}"""    
-        template1 = """You are tasked to identify several themes that answers question {question} \n
-                Each theme must be less than 5 words.
-                Only use information from this context, if you don't know the answer, just say that you don't: {context} \n
-                Please format your answer based on these format instructions: {format_instructions}"""  
-        output_parser = CommaSeparatedListOutputParser()
-        format_instructions = output_parser.get_format_instructions()
+    # if not ToCStatus:
+    #     keywords = ["material topics", "sustainability", "environmental", "sustainable", "supply chain", "human rights"]
+    #     question1 = f"""What is the Environmental Social Governance (ESG) approach of this company? 
+    #                 You may consider the following keywords: {keywords}"""    
+    #     template1 = """You are tasked to identify several themes that answers question {question} \n
+    #             Each theme must be less than 5 words.
+    #             Only use information from this context, if you don't know the answer, just say that you don't: {context} \n
+    #             Please format your answer based on these format instructions: {format_instructions}"""  
+    #     output_parser = CommaSeparatedListOutputParser()
+    #     format_instructions = output_parser.get_format_instructions()
 
-        rag_prompt_custom1 = PromptTemplate(
-            template= template1,
-            input_variables=["context", "question"],
-            partial_variables={"format_instructions": format_instructions})
+    #     rag_prompt_custom1 = PromptTemplate(
+    #         template= template1,
+    #         input_variables=["context", "question"],
+    #         partial_variables={"format_instructions": format_instructions})
 
-        rag_chain1 = (
-            {"context": retriever | format_docs, "question": RunnablePassthrough()}
-            | rag_prompt_custom1
-            | llm
-            | output_parser
-        )
-        outline_ls = rag_chain1.invoke(question1)
-        dh.write_output(company_symbol,outline_ls,"ESG_approach_outline", list_type=True,ToC=ToCStatus)
-        print("completed stage 2c(i) of RAG -- ESG Approach outline")
+    #     rag_chain1 = (
+    #         {"context": retriever | format_docs, "question": RunnablePassthrough()}
+    #         | rag_prompt_custom1
+    #         | llm
+    #         | output_parser
+    #     )
+    #     outline_ls = rag_chain1.invoke(question1)
+    #     dh.write_output(company_symbol,outline_ls,"ESG_approach_outline", list_type=True,ToC=ToCStatus)
+    #     print("completed stage 2c(i) of RAG -- ESG Approach outline")
 
     if ToCStatus:
         '''chain of thought implemented'''
@@ -193,11 +195,16 @@ def run_wiki_gen_base(company_symbol,ToCStatus = False,vectorstore="does not exi
     #==================================================
     '''(ii) retrieve & generate SPECIFIC POINTS in the outline'''
 
+    llm2 = Ollama(model='mistral',
+                system="""You are an expert at sustainable finance and ESG evaluation based on purely just context given to you.
+                Additionally you are a strong writer that generates accurate, factual and well-written content""",
+                temperature = 2,
+                callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
+
     '''prompt engineering, structuring prompts'''
-    template2 = """You are tasked to write the ESG approach section for the sustainable finance Wikipedia page of a company,
-                    specifically on {pointer}. \n
-                    Write about three to five paragraphs, reference the source of the context using the page number as much as possible.
-                    Only use information from this context to generate text: {context}"""
+    template2 = """You are tasked to write a sub section of the sustainable finance Wikipedia page of a company,
+                    specifically on this material topic: {pointer}. \n
+                    Write about three to five paragraphs and only use information from this context to generate text: {context}"""
     
     rag_prompt_custom2 = PromptTemplate(
         template= template2,
@@ -207,7 +214,7 @@ def run_wiki_gen_base(company_symbol,ToCStatus = False,vectorstore="does not exi
     rag_chain2 = (
         {"context": retriever | format_docs, "pointer": RunnablePassthrough()}
         | rag_prompt_custom2
-        | llm
+        | llm2
         | StrOutputParser() 
     )
 
@@ -217,7 +224,7 @@ def run_wiki_gen_base(company_symbol,ToCStatus = False,vectorstore="does not exi
     print(len(outline_ls))
 
     '''generation'''
-    dh.write_output(company_symbol, f"Header: ESG_approach","ESG_approach",header=True,ToC=ToCStatus) 
+    # dh.write_output(company_symbol, f"Header: ESG_approach","ESG_approach",header=True,ToC=ToCStatus) 
     for point in outline_ls:
         dh.write_output(company_symbol, f"Sub header: {point}","ESG_approach",header=True,ToC=ToCStatus) 
         article = rag_chain2.invoke(point)
@@ -236,37 +243,37 @@ def run_wiki_gen_base(company_symbol,ToCStatus = False,vectorstore="does not exi
         - ESG reporting frameworks
     '''
 
-    if not ToCStatus: # no need to run for ToC version
-        keywords = ["sustainable commitments", "2050", "2030", "carbon zero", "net zero", "achievements", "reporting frameworks",
-                    "IFRS", "GRI", "SASB", "SDG", "CDP"]
-        question3 = f"""What are their sustainable commitments, achievements, and reporting standards?
-                    You may consider the following keywords: {keywords}""" 
+    # if not ToCStatus: # no need to run for ToC version
+    keywords = ["sustainable commitments", "2050", "2030", "carbon zero", "net zero", "achievements"]
+    keywords_reporting_frameworks = ["reporting frameworks","IFRS", "GRI", "SASB", "SDG", "CDP"]
+    question3 = f"""What are their sustainable commitments, achievements?
+                You may consider the following keywords: {keywords}""" 
 
 
-        template3 = """You are tasked to create the ESG overview section for the sustainable finance Wikipedia page of a company \n
-                You should write one to two paragraphs answering this question: {question} \n
-                Include just a line that talks about the themes that was covered earlier: {themes} \n 
-                if the information does not exist, just say so, you must only use information from this context:  {context}"""  
+    template3 = """You are tasked to create the ESG overview section for the sustainable finance Wikipedia page of a company \n
+            You should write one to two paragraphs answering this question: {question} \n
+            if the information does not exist, just say so, you must only use information from this context:  {context} \n \n
+            Link neatly to a transition line at the end that talks about the themes that was covered earlier: {themes} \n """  
 
-        rag_prompt_custom3 = PromptTemplate(
-            template= template3,
-            input_variables=["question", "context"])
+    rag_prompt_custom3 = PromptTemplate(
+        template= template3,
+        input_variables=["question", "context"])
 
-        rag_chain3 = (
-            {
-                "context": itemgetter("question")| retriever,
-                "question": itemgetter("question"),
-                "themes": itemgetter("themes"),
-            }
-            | rag_prompt_custom3
-            | llm
-            | StrOutputParser() 
-        )
-        ESG_overview = rag_chain3.invoke({"question":question3, "themes":str(outline_ls)})
-        dh.write_output(company_symbol,"Header: ESG_overview","ESG_overview", header=True,ToC=ToCStatus)
-        dh.write_output(company_symbol,ESG_overview,"ESG_overview",ToC=ToCStatus)
+    rag_chain3 = (
+        {
+            "context": itemgetter("question")| retriever,
+            "question": itemgetter("question"),
+            "themes": itemgetter("themes"),
+        }
+        | rag_prompt_custom3
+        | llm2
+        | StrOutputParser() 
+    )
+    ESG_overview = rag_chain3.invoke({"question":question3, "themes":str(outline_ls)})
+    dh.write_output(company_symbol,"Header: ESG_overview","ESG_overview", header=True,ToC=ToCStatus)
+    dh.write_output(company_symbol,ESG_overview,"ESG_overview",ToC=ToCStatus)
 
-        print("completed stage 2b of RAG -- ESG Overview")
+    print("completed stage 2b of RAG -- ESG Overview")
     
 
     #############################################################################################################################
@@ -274,21 +281,21 @@ def run_wiki_gen_base(company_symbol,ToCStatus = False,vectorstore="does not exi
     save_time(company_symbol, start_time, index_time, end_time,ToCStatus=ToCStatus)
 
 
-    if not ToCStatus:
-        print(f"""
-          #====================================================== 
-          # RAG + ToC function has started for {company_symbol}
-          #====================================================== """)
+    # if not ToCStatus:
+    #     print(f"""
+    #       #====================================================== 
+    #       # RAG + ToC function has started for {company_symbol}
+    #       #====================================================== """)
         
-        run_wiki_gen_base(company_symbol,ToCStatus=True,vectorstore=vectorstore)
+    #     run_wiki_gen_base(company_symbol,ToCStatus=True,vectorstore=vectorstore)
         
-        print(f"""
-          #====================================================== 
-          # RAG + ToC function has completed for {company_symbol}
-          #
-          # Whole run completed!
-          #
-          #====================================================== """)
+    #     print(f"""
+    #       #====================================================== 
+    #       # RAG + ToC function has completed for {company_symbol}
+    #       #
+    #       # Whole run completed!
+    #       #
+    #       #====================================================== """)
 
     #===========================
 
@@ -303,16 +310,19 @@ if __name__ == '__main__':
     # run_wiki_gen_base("CCEP")
     # print(dh.get_all_companies()['Symbol'])
     for symbol in dh.get_all_companies()['Symbol']:
-        if symbol == "AAPL":
+        if symbol != "JNJ":
             print(f"""
                 #====================================================== 
                 # RAG function has started for {symbol}
                 #====================================================== """)
 
-            run_wiki_gen_base(symbol)
+            run_wiki_gen_base(symbol, ToCStatus=True)
 
             print(f"""
                 #====================================================== 
                 # RAG function has completed for {symbol}
                 #====================================================== """)
+            
+
         
+    

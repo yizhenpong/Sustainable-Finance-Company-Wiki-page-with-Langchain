@@ -7,6 +7,9 @@ langchain==0.0.351
 pypdf==3.17.4
 weaviate-client==3.*
 chromadb==0.4.21
+language_tool_python==2.7.1
+py-readability-metrics==1.4.5
+matplotlib==3.8.2
 # googlesearch-python==1.2.3
 # faiss-cpu==1.7.4
 torch==2.1.2
