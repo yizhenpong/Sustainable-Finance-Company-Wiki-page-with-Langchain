@@ -1,0 +1,22 @@
+Header: extracted_TOC 
+ 
+  Table of Contents:
+
+1. Diverse Surgeon Initiative 2.0 (p. 2)
+2. Our Approach (p. 3)
+   - Investment in R&D and Digital Capabilities (p. 3-4)
+   - Acquisition of Abiomed, Inc. and Expansion in Cardiovascular Care (p. 4)
+   - Technology Advancements in Supply Chain (p. 4)
+   - Future Companies: Kenvue and Johnson & Johnson (p. 5)
+3. Global Targets and Achievements in 2022 (p. 6)
+   - Championing global health equity (p. 6-7)
+   - Empowering employees (p. 7)
+      * Diversity, Equity and Inclusion outcomes (p. 7)
+      * Upskilling employees (p. 7-8)
+      * Enhancing mental health resources (p. 8)
+   - Advancing environmental health (p. 8-9)
+4. Joaquin Duato's Message and Commitment to the Future (p. 9-10) 
+ Header: cleaned_headers 
+ 
+  2, 3.1-3.3, 4, 3.4-3.6, 3.7-3.9, 5 
+ 
