@@ -77,17 +77,22 @@ def batch_create_output_folder(main_f_path):
 def write_output(symbol,text_output,
                  portion=["ESG_approach","ESG_approach_outline", "ESG_overview", 
                           "Company_info","ToC_ESG_approach_outline", "ToC_ESG_approach_outline_process"], 
-                 header = False, list_type = False, json_type = False, ToC = False):
-    if ToC:
-        if not json_type:
-            file_path = f"output_ToC/{symbol}/{portion}.txt"
-        else:
-            file_path = f"output_ToC/{symbol}/{portion}.json"
-    if not ToC:
-        if not json_type:
-            file_path = f"output_base/{symbol}/{portion}.txt"
-        else:
-            file_path = f"output_base/{symbol}/{portion}.json"
+                 header = False, list_type = False, json_type = False, ToC = False, eval = False):
+    if eval:
+        file_path = f"eval/all_companies.txt"
+    else:
+        if ToC:
+            if not json_type:
+                file_path = f"output_ToC/{symbol}/{portion}.txt"
+            else:
+                file_path = f"output_ToC/{symbol}/{portion}.json"
+        if not ToC:
+            if not json_type:
+                file_path = f"output_base/{symbol}/{portion}.txt"
+            else:
+                file_path = f"output_base/{symbol}/{portion}.json"
+
+
     if list_type:
         with open(file_path, 'a') as file:
             [file.write(f"{item}\n ") for item in text_output]
