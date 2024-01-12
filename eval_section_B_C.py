@@ -2,13 +2,18 @@
 
 '''
 main automated metrics:
-- (1) readability scores 
-        sh 
-        ```pip install py-readability-metrics
-        python -m nltk.downloader punkt```
-- (2) custom criterion
-- (3) search API
+- readability scores (ARI) in particular
+    - ARI 
+- language tool (to check for grammar mistakes)
 '''
+
+# '''    sh 
+#     ```pip install py-readability-metrics
+#     python -m nltk.downloader punkt``` '''
+# - (2) custom criterion - will use YARN mistral
+#     - ollama run yarn-mistral:7b-128k
+# - (3) search API
+
 import data_helper as dh
 from readability import Readability
 import language_tool_python
@@ -169,3 +174,5 @@ but i feel like its more for a non technical content understanding
 # lw = r.linsear_write()
 # print(lw.score)
 # print(lw.grade_level)
+
+

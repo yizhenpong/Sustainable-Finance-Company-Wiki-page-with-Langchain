@@ -1,24 +1,36 @@
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 import os
-import re
 import json
 
 '''
-Getting data from csv file 'company_info.csv'
-Downloading the sustainability reports
+Download nasdaq screener for stock codes
+    - pick a few stock codes and find their sustainability report (SR) link
+    - Save selected stock codes and link to company_info.csv
 
-download pdf to file path: "data/sustainability_reports/{symbol}.pdf"
+Get data from csv file 'company_info.csv'
+Downloading the sustainability reports
+    - to file path: "data/sustainability_reports/{symbol}.pdf"
+
 output folders:
-    output_base
+    output_base (RAG)
         - individual companies based on symbol
-            - company_info.txt
-            - ESG_approach_outline
-            - ESG_approach
-            - ESG_overview
-    output_ToC
-        - same as above
+            - company_info.json
+            - ESG_approach_outline.txt
+            - ESG_approach.txt
+            - ESG_overview.txt
+            - executn_time.csv
+    output_ToC (RAG + ToC)
+        - individual companies based on symbol
+            - company_info.json
+            - ESG_approach.txt
+            - ESG_overview.txt
+            - ToC_ESG_approach_outline_process.txt
+            - ToC_ESG_approach_outline.txt
+            - executn_time.csv
+
+Run this file to download relevant pdfs, and create output folders. 
 '''
 
 ############################################################################################################################## 
@@ -125,27 +137,15 @@ def get_output(symbol, portion=["ESG_approach","ESG_approach_outline", "ESG_over
     return output
 
 
-
-# def get_filtered_pages(input_string):
-#     # Define a regular expression pattern to match "answer:" followed by a list
-#     pattern = r"answer:\s*\[([^\]]*)\]"
-
-#     # Use re.search to find the pattern in the input string
-#     match = re.search(pattern, input_string)
-
-#     # If a match is found, return the captured group (the content of the square brackets)
-#     if match:
-#         text_with_newlines = match.group(1)
-#         cleaned_text = text_with_newlines.replace("\n", "")
-#         return cleaned_text
-#     else:
-#         # Return None if no match is found
-#         return f"""Pls find manually... \n \n
-#         #==========================================
-#         {input_string}
-#         #=========================================="""
-
-
+############################################################################################################################## 
+'''main'''
+if __name__ == '__main__':
+    batch_download() # uncomment to download all sustainabiltiy reports
+    create_folder(main_f_path="output_base")
+    create_folder(main_f_path="output_ToC") # creates base folders
+    batch_create_output_folder("output_base")
+    batch_create_output_folder("output_ToC") #creates individual company folders
+    pass
 
 
 
@@ -158,13 +158,3 @@ def get_output(symbol, portion=["ESG_approach","ESG_approach_outline", "ESG_over
 # print(download_pdf(url,"AAPL"))
 # print(get_all_companies())
 # print(get_csv_headers())
-
-############################################################################################################################## 
-'''main'''
-if __name__ == '__main__':
-    # batch_download() # uncomment to download all sustainabiltiy reports
-    # create_folder(main_f_path="output_base")
-    create_folder(main_f_path="output_ToC") # creates base folders
-    # batch_create_output_folder("output_base")
-    batch_create_output_folder("output_ToC") #creates individual company folders
-    pass

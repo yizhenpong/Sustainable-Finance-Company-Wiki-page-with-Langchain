@@ -7,10 +7,17 @@ instructions:
 
 RAG
 - PART 1) Indexing (load, split, store)
+    - we will use the entire sustainability report
 - PART 2) Retrieving and generation (retrieve, generate)
+    - retrieve top k = 10 documents for each query
+    - for each stock code, we segmented the targeted wikipedia page into three sections:    
+        - Part A (Company info), Part B (ESG Overview), Part C (ESG Approach)
+    - The pipeline for our content generation / queries will be A > C(i) outline for C > C(ii) ESG Approach itself > B
+        - [RAG + ToC] improve the outline generated in C(i) using chain of thought. 
+                refer to `wiki_gen_ToC.py`
 
-Dealing with long inputs - selecting top k, Rag + ToC (deal directly w table of contents)
-Dealing with long outputs - use an outline and tackle from top down, Rag + ToC (customised outline)
+Dealing with long inputs - selecting top k, Rag + ToC (using optimised filter) table of contents)
+Dealing with long outputs - use an outline and tackle from top down, Rag + ToC (improved customised outline)
 """
 
 ############################################################################################################################## 
@@ -68,7 +75,7 @@ def run_wiki_gen_base(company_symbol,ToCStatus = False):
             system="You are an expert at creating structured data",
                 callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
 
-    retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 10})
+    retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 10}) # top k = 10
     # methods to consider hyde, cohere reranker etc
     # https://python.langchain.com/docs/templates/hyde?ref=blog.langchain.dev
     # https://python.langchain.com/docs/integrations/retrievers/cohere-reranker?ref=blog.langchain.dev 
@@ -307,15 +314,14 @@ def run_wiki_gen_base(company_symbol,ToCStatus = False):
 
 
 if __name__ == '__main__':
-    # run_wiki_gen_base("CCEP")
-    # print(dh.get_all_companies()['Symbol'])
+    # this is running RAG + ToC approach
     for symbol in dh.get_all_companies()['Symbol']:
         print(f"""
             #====================================================== 
             # RAG function has started for {symbol}
             #====================================================== """)
 
-        run_wiki_gen_base(symbol, ToCStatus=True)
+        run_wiki_gen_base(symbol, ToCStatus=True) # You may drop ToCStatus argument for RAG method
 
         print(f"""
             #====================================================== 

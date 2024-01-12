@@ -4,25 +4,15 @@ instructions:
     - ollama pull mistral
 - pip install langchain
 
-RAG
-- PART 1) Indexing (load, split, store)
-- PART 2) Retrieving and generation (retrieve, generate)
+RAG content generation pipline (A > Ci > Cii > B)
+ToC method improves Ci in particular using chain of thought prompting
+    - uses two llms (one for structured output, the other for creative content - higher temperature)
 
-Dealing with long inputs - selecting top k, possibly using a fine tuned YARN Mistral 7B model, ToC model(Own thoughts)
-Dealing with long outputs - use an outline and tackle from top down
-
-''' PART 3 - Some tests to optimise output'''
-Introducing ToC - Using table of contents as a filter to deal with long inputs
-
-Instead of map reduce OR selecting topk using vectorstore retriever,
-Can i directly predict the outline based on table of contents? [idea]
-To do so:
-    - Generate the table of contents (see if this is even accurate)
-    - Filter strategy
-    - Generate outline based on ToC
-
-Resources:
-https://python.langchain.com/docs/modules/chains/document/map_reduce
+Step 1) Extract the ToC from the first three pages `extracted_TOC`
+Step 2) Remove irrelevant headers that are not material topics `cleaned_headers`
+Step 3) Prioritise and rank the material topics `material_topics`
+Step 4) Output as list `material_topics_lst`
+    - why not CommaSeparatedListOutputParser? Because increased temperature LLM seems to mess with the output
 """
 
 ############################################################################################################################## 
@@ -35,18 +25,12 @@ from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 '''load, chunking, embed and store'''
-from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores import Chroma
-from langchain.embeddings import OllamaEmbeddings
 
 '''Retrieving and generation'''
-from langchain.output_parsers import CommaSeparatedListOutputParser,StructuredOutputParser, ResponseSchema
-from langchain.schema import StrOutputParser
+from langchain.output_parsers import CommaSeparatedListOutputParser
 from langchain.prompts import PromptTemplate
-from langchain.chains import SimpleSequentialChain, SequentialChain
-from langchain_core.runnables import RunnablePassthrough
-from langchain.prompts.few_shot import FewShotPromptTemplate
+from langchain.chains import SequentialChain
 from langchain.chains import LLMChain
 
 ############################################################################################################################## 
@@ -76,8 +60,8 @@ def gen_outline_from_ToC(company_symbol,first_three_pages):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     all_splits = text_splitter.split_documents(first_three_pages)
     # vectorstore = Chroma.from_documents(documents=all_splits, embedding=OllamaEmbeddings())
-    print("created vectorstore...")
-    print("completed stage 1 of ToC -- Indexing (load, split, store)")
+    # print("created vectorstore...")
+    # print("completed stage 1 of ToC -- Indexing (load, split, store)")
 
     def format_docs(docs):
         return "\n\n".join(doc.page_content for doc in docs)
@@ -119,6 +103,8 @@ def gen_outline_from_ToC(company_symbol,first_three_pages):
     output_parser = CommaSeparatedListOutputParser()
     format_instructions = output_parser.get_format_instructions()
 
+    # introduce concept of material topics
+
     templateTOC2 = """You are tasked to find material topics for this company.\n
                     Material topics are topics that represent an organization's most significant impacts on the economy, 
                     environment, and people, including impacts on their human rights. \n
@@ -140,8 +126,6 @@ def gen_outline_from_ToC(company_symbol,first_three_pages):
     )
     
     #===========================
-
-    # introduce concept of material topics
     templateTOC3 = """You are now tasked to find material topics for this company.\n
 
                     Material topics are topics that represent an organization's most significant impacts on the economy, 
