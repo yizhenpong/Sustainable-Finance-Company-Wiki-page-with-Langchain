@@ -45,14 +45,12 @@ def get_eval(company_symbol, section = ["ESG_approach","ESG_overview"],ToCStatus
             "ari_ages": ari.ages, "num_lang_errors":len(matches)}
     return overview_eval, df
 
-get_eval("JNJ", "ESG_approach",ToCStatus=True)
-
 
 def eval_company(company_symbol):
     for section in ["ESG_approach","ESG_overview"]:
         dh.write_output(company_symbol,text_output=f"----- section: {section}-----", eval=True)
         # print(f"----- section: {section}-----")
-        x = get_eval("JNJ", section,ToCStatus=True)
+        x = get_eval(company_symbol, section,ToCStatus=True)
         dh.write_output(company_symbol,text_output=x[0], eval=True)
         # print(x[0])
         if x[0]['num_lang_errors'] != 0:
