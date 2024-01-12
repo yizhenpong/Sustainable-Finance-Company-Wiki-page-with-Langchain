@@ -40,6 +40,8 @@ Pipeline for content generation: --- see `wiki_gen_base.py` + `wiki_gen_ToC.py`
 ^ At different points of the model, different temperature llms are utilised, please refer to the system prompts and llm
 ^ Understanding of the concept "materiality/material topics/material information" may be required for holistic understanding.
 
+see `output_ToC` folder for final output run for RAG + ToC approach
+
 ## Part 3 - Evaluation
 - Part A 
     - See ground truth in `eval/section_A_ground_truth.json` - human generated
