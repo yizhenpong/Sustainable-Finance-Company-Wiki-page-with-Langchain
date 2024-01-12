@@ -1,0 +1,106 @@
+============= evaluation for AAPL ============= 
+ ----- section: ESG_approach----- 
+ {'num_words': 64741, 'ari_score': 19.995269379574133, 'ari_grade_levels': ['college_graduate'], 'ari_ages': [24, 100], 'num_lang_errors': 131} 
+       Category  Count
+0        TYPOS    125
+1  COMPOUNDING      1
+2         MISC      1
+3      GRAMMAR      2
+4   TYPOGRAPHY      2 
+ ----- section: ESG_overview----- 
+ {'num_words': 1471, 'ari_score': 16.863599149388627, 'ari_grade_levels': ['college_graduate'], 'ari_ages': [24, 100], 'num_lang_errors': 0} 
+ 
+ 
+ 
+ 
+ ============= evaluation for JNJ ============= 
+ ----- section: ESG_approach----- 
+ {'num_words': 64741, 'ari_score': 19.995269379574133, 'ari_grade_levels': ['college_graduate'], 'ari_ages': [24, 100], 'num_lang_errors': 131} 
+       Category  Count
+0        TYPOS    125
+1  COMPOUNDING      1
+2         MISC      1
+3      GRAMMAR      2
+4   TYPOGRAPHY      2 
+ ----- section: ESG_overview----- 
+ {'num_words': 1471, 'ari_score': 16.863599149388627, 'ari_grade_levels': ['college_graduate'], 'ari_ages': [24, 100], 'num_lang_errors': 0} 
+ 
+ 
+ 
+ 
+ ============= evaluation for PG ============= 
+ ----- section: ESG_approach----- 
+ {'num_words': 64741, 'ari_score': 19.995269379574133, 'ari_grade_levels': ['college_graduate'], 'ari_ages': [24, 100], 'num_lang_errors': 131} 
+       Category  Count
+0        TYPOS    125
+1  COMPOUNDING      1
+2         MISC      1
+3      GRAMMAR      2
+4   TYPOGRAPHY      2 
+ ----- section: ESG_overview----- 
+ {'num_words': 1471, 'ari_score': 16.863599149388627, 'ari_grade_levels': ['college_graduate'], 'ari_ages': [24, 100], 'num_lang_errors': 0} 
+ 
+ 
+ 
+ 
+ ============= evaluation for BAC ============= 
+ ----- section: ESG_approach----- 
+ {'num_words': 64741, 'ari_score': 19.995269379574133, 'ari_grade_levels': ['college_graduate'], 'ari_ages': [24, 100], 'num_lang_errors': 131} 
+       Category  Count
+0        TYPOS    125
+1  COMPOUNDING      1
+2         MISC      1
+3      GRAMMAR      2
+4   TYPOGRAPHY      2 
+ ----- section: ESG_overview----- 
+ {'num_words': 1471, 'ari_score': 16.863599149388627, 'ari_grade_levels': ['college_graduate'], 'ari_ages': [24, 100], 'num_lang_errors': 0} 
+ 
+ 
+ 
+ 
+ ============= evaluation for KO ============= 
+ ----- section: ESG_approach----- 
+ {'num_words': 64741, 'ari_score': 19.995269379574133, 'ari_grade_levels': ['college_graduate'], 'ari_ages': [24, 100], 'num_lang_errors': 131} 
+       Category  Count
+0        TYPOS    125
+1  COMPOUNDING      1
+2         MISC      1
+3      GRAMMAR      2
+4   TYPOGRAPHY      2 
+ ----- section: ESG_overview----- 
+ {'num_words': 1471, 'ari_score': 16.863599149388627, 'ari_grade_levels': ['college_graduate'], 'ari_ages': [24, 100], 'num_lang_errors': 0} 
+ 
+ 
+ 
+ 
+ ============= evaluation for BIDU ============= 
+ ----- section: ESG_approach----- 
+ {'num_words': 64741, 'ari_score': 19.995269379574133, 'ari_grade_levels': ['college_graduate'], 'ari_ages': [24, 100], 'num_lang_errors': 131} 
+       Category  Count
+0        TYPOS    125
+1  COMPOUNDING      1
+2         MISC      1
+3      GRAMMAR      2
+4   TYPOGRAPHY      2 
+ ----- section: ESG_overview----- 
+ {'num_words': 1471, 'ari_score': 16.863599149388627, 'ari_grade_levels': ['college_graduate'], 'ari_ages': [24, 100], 'num_lang_errors': 0} 
+ 
+ 
+ 
+ 
+ ============= evaluation for BABA ============= 
+ ----- section: ESG_approach----- 
+ {'num_words': 64741, 'ari_score': 19.995269379574133, 'ari_grade_levels': ['college_graduate'], 'ari_ages': [24, 100], 'num_lang_errors': 131} 
+       Category  Count
+0        TYPOS    125
+1  COMPOUNDING      1
+2         MISC      1
+3      GRAMMAR      2
+4   TYPOGRAPHY      2 
+ ----- section: ESG_overview----- 
+ {'num_words': 1471, 'ari_score': 16.863599149388627, 'ari_grade_levels': ['college_graduate'], 'ari_ages': [24, 100], 'num_lang_errors': 0} 
+ 
+ 
+ 
+ 
+ 
