@@ -55,9 +55,10 @@ Pipeline for content generation: --- see `wiki_gen_base.py` + `wiki_gen_ToC.py`
 - Part B and C
     - readibility score (ARI)
     - language tool (grammar check)
-
-
-
+    - run `eval_section_A.py` to get the scores for part A output
+        - refer to `eval/section_A_eval.json` for the human evaluation conducted based on 
+            `eval/section_A_ground_truth.json` that was retriebed via google search
+    - run `eval_section_B_C.py` for eval of part B and C. Outputs placed in `eval/all_companies.txt`
 
 
 
