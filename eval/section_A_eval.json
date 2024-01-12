@@ -1,0 +1,296 @@
+{
+    "AAPL": {
+        "Company name": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "ISIN Code": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Headquarters": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "founded in": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "founded by": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Important People": {
+            "Eval": 1,
+            "Type": "Relative",
+            "Reason": "NA"
+        },
+        "Website": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Sustainability Report Name": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        }
+    },
+    "BABA": {
+        "Company name": {
+            "Eval": 0,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "ISIN Code": {
+            "Eval": 0,
+            "Type": "Absolute",
+            "Reason": "NA"
+        }, 
+        "Headquarters": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "founded in": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "founded by": {
+            "Eval": 0,
+            "Type": "Absolute",
+            "Reason": "Joe Himsat is not a co-founder"
+        },
+        "Important People": {
+            "Eval": 0,
+            "Type": "Relative",
+            "Reason": "Daniel Zhang is the former CEO"
+        },
+        "Website": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Sustainability Report Name": {
+            "Eval": 0,
+            "Type": "Absolute",
+            "Reason": "NA"
+        }
+    },
+    "BAC": {
+        "Company name": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "ISIN Code": {
+            "Eval": 0,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Headquarters": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "founded in": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "founded by": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Important People": {
+            "Eval": 1,
+            "Type": "Relative",
+            "Reason": "NA"
+        },
+        "Website": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Sustainability Report Name": {
+            "Eval": 0,
+            "Type": "Absolute",
+            "Reason": "NA"
+        }
+    },
+    "BIDU": {
+        "Company name": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "ISIN Code": {
+            "Eval": 0,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Headquarters": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "founded in": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "founded by": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Important People": {
+            "Eval": 1,
+            "Type": "Relative",
+            "Reason": "NA"
+        },
+        "Website": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Sustainability Report Name": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        }
+    },
+    "KO": {
+        "Company name": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "ISIN Code": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Headquarters": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "founded in": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "Founded in 1886, unable to find the exact date"
+        },
+        "founded by": {
+            "Eval": 0,
+            "Type": "Absolute",
+            "Reason": "Joseph Smith is not a founder"
+        },
+        "Important People": {
+            "Eval": 1,
+            "Type": "Relative",
+            "Reason": "NA"
+        },
+        "Website": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Sustainability Report Name": {
+            "Eval": 0,
+            "Type": "Absolute",
+            "Reason": "NA"
+        }
+    },
+    "JNJ": {
+        "Company name": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "ISIN Code": {
+            "Eval": 0,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Headquarters": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "founded in": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "Founded in 1886, unable to find the exact date"
+        },
+        "founded by": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Important People": {
+            "Eval": 1,
+            "Type": "Relative",
+            "Reason": "NA"
+        },
+        "Website": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Sustainability Report Name": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        }
+    },
+    "PG": {
+        "Company name": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "ISIN Code": {
+            "Eval": 0,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Headquarters": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "founded in": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "founded by": {
+            "Eval": 0,
+            "Type": "Absolute",
+            "Reason": "Wrong surname given for James Gamble"
+        },
+        "Important People": {
+            "Eval": 0,
+            "Type": "Relative",
+            "Reason": "David Taylor is the former CEO"
+        },
+        "Website": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        },
+        "Sustainability Report Name": {
+            "Eval": 1,
+            "Type": "Absolute",
+            "Reason": "NA"
+        }
+    }
+}

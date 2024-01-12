@@ -1,0 +1,71 @@
+{
+    "AAPL": {
+        "Company name": "Apple Inc.", 
+        "ISIN Code": "US0378331005", 
+        "Headquarters": "Cupertino, California, United States", 
+        "founded in": "April 1, 1976", 
+        "founded by": "Steve Jobs, Steve Wozniak, and Ronald Wayne", 
+        "Important People": "Tim Cook (CEO)", 
+        "Website": "https://www.apple.com/", 
+        "Sustainability Report Name": "Apple's Environmental Progress Report"
+    },
+    "BABA": {
+        "Company name": "Alibaba Group Holdings Ltd.", 
+        "ISIN Code": "US01609W1027", 
+        "Headquarters": "Hangzhou, China", 
+        "founded in": "1999", 
+        "founded by": "Jack Ma, with 17 other co-founders", 
+        "Important People": "Eddie Wu", 
+        "Website": "https://www.alibabagroup.com/", 
+        "Sustainability Report Name": "Environmental, Social, and Governance Report"
+    },
+    "BAC": {
+        "Company name": "Bank of America Corporation", 
+        "ISIN Code": "US0605051046", 
+        "Headquarters": "Charlotte, North Carolina, USA", 
+        "founded in": "1904", 
+        "founded by": "Amadeo Peter Giannini", 
+        "Important People": "Brian Moynihan (CEO)", 
+        "Website": "https://www.bankofamerica.com/", 
+        "Sustainability Report Name": "Task Force on Climate-related Financial Disclosures Report"
+    },
+    "BIDU": {
+        "Company name": "Baidu, Inc.", 
+        "ISIN Code": "US0567521085", 
+        "Headquarters": "Beijing, China", 
+        "founded in": "2000", 
+        "founded by": "Robin Li and Eric Xu", 
+        "Important People": ["Robin Li (CEO)"], 
+        "Website": "https://www.baidu.com/", 
+        "Sustainability Report Name": "Baidu Environmental, Social and Governance Report"
+    },
+    "KO": {
+        "Company name": "The Coca-Cola Company", 
+        "ISIN Code": "US1912161007", 
+        "Headquarters": "Atlanta, Georgia, United States", 
+        "founded in": "May 29, 1886 (as a drink company, August 29, 1888 as The Coca-Cola Company)", 
+        "founded by": "Asa Griggs Candler", 
+        "Important People": "James Quincey (CEO since December 1, 2017)", 
+        "Website": "https://www.coca-colacompany.com/", 
+        "Sustainability Report Name": "The Coca-Cola Company 2022 Business & Sustainability Report"
+    },
+    "JNJ": {
+        "Company name": "Johnson & Johnson", 
+        "ISIN Code": "US4781601046", 
+        "Headquarters": "New Brunswick, New Jersey, United States", 
+        "founded in": "1886", 
+        "founded by": "James Wood Johnson and his younger brother Edward Mead Johnson", 
+        "Important People": "[{\"Name\": \"Michael Ehret, Ph.D.\", \"Position\": \"Head of Global Talent Development\"}, {\"Name\": \"Katie Abouzahr M.D.\", \"Position\": \"Vice President, Portfolio Development Leader, Autoantibody, Janssen R&D\"}]", 
+        "Website": "https://www.jnj.com/", 
+        "Sustainability Report Name": "2022 Johnson & Johnson Global Report: Health for Humanity"},
+    "PG": {
+        "Company name": "Procter & Gamble (P&G)", 
+        "ISIN Code": "US7427181091", 
+        "Headquarters": "Cincinnati, Ohio, United States", 
+        "founded in": "October 1837", 
+        "founded by": "James Gamble and William Procter", 
+        "Important People": "Jon Moeller (Chairman of the Board, President and Chief Executive Officer)", 
+        "Website": "https://www.pg.com/", 
+        "Sustainability Report Name": "P&G Sustainability Report"
+    }
+}
