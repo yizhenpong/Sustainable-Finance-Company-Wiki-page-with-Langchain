@@ -4,10 +4,6 @@
 
 Large language models (LLMs) play a pivotal role in various Natural Language Processing (NLP) tasks. This study focuses on the application of LLMs in the realm of sustainable finance, specifically framing the task as closed-domain question answering. Leveraging on Retrieval-Augmented Generation (RAG) with top-k retrieval, this paper introduces an innovative approach that combines RAG with insights from Table of Contents (ToC), denoted as _RAG _+ _ToC. This method effectively addresses the problem of long inputs, under the assumption of structured data as inputs where ToC acts as an optimised filter for handling our query. In handling extensive outputs, we employ a conventional method of generating an outline, but tailored using RAG + ToC with chain of thought prompting. A new phenomenon of _Structure _bias of LLMs was also introduced in our analysis of outputs.
 
-## Overview of outputs
-For outputs, see `output_ToC` folder for final output run for RAG + ToC approach
-Evaluation is stored in `eval/section_A_eval.json` and `eval/all_companies.txt`
-
 ## Approach
 
 LLM model = Mistral 7b, LLM framework = langchain, OllamaEmbeddings, Chroma vector store, LLM hosted on Ollama
