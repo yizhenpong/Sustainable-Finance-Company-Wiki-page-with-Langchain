@@ -1,0 +1,47 @@
+Header: extracted_TOC 
+ 
+  Based on the context provided, here's the table of contents with section names as keys and their corresponding page numbers as values:
+
+{
+"Company Introduction": ["2"],
+"Our mission": ["2"],
+"Our vision": ["2"],
+"Environmental strategy and governance": [],
+"Solidly promoting carbon neutrality": [],
+"Conserving and restoring nature": [],
+"Letter from our Chairman and CEO": [],
+"Report Instructions": [],
+"Executive Summary": [],
+"Building corporate trust": ["01"],
+"Building social trust": ["02"],
+"Developing responsible technologies": ["03"],
+"Creating and enabling Inclusive employment": ["04"],
+"Promoting responsible production and distribution": ["05-08"],
+"01 Building markets, business capabilities and business ecology for MSMEs": ["190-198"],
+"02 Rural revitalization through digital development": ["199-207"],
+"03 Community resilience through digital technology": ["208-239"],
+"Establishing a diverse, equitable, and inclusive culture and system": ["102-104"],
+"Establishing fair and competitive remuneration with heartwarming benefits": ["110-116"],
+"Offering abundant learning and development opportunities": ["117-131"],
+"Creating a work environment conducive to improving employee health and vitality": ["132-139"],
+"Diverse consumption": [],
+"Trustworthy Consumption": [],
+"Inclusive Consumption": [],
+"Responsible Consumption": [],
+"Philanthropic participation of all employees": ["148-165"],
+"Technological innovations for social challenges": ["176-179"],
+"Connecting ecological forces to empower charities": ["180-182"],
+"Restoring Our Green Planet": [],
+"Fueling Small Businesses": [],
+"Building Trust": [],
+"Supporting Our People": [],
+"Enhancing Community Inclusion and Resilience": [],
+"Enabling a Sustainable Digital Life": ["183-187"],
+"Facilitating Participatory Philanthropy": ["239"]
+}
+
+The page numbers are not explicitly mentioned in the text, so some sections may be placed in the wrong order based on their textual position. Additionally, there might be missing or extra sections depending on the actual report layout. 
+ Header: cleaned_headers 
+ 
+  ["Environmental strategy and governance", "Solidly promoting carbon neutrality", "Conserving and restoring nature", "Building corporate trust", "Building social trust", "Developing responsible technologies", "Creating and enabling Inclusive employment", "Promoting responsible production and distribution", "01 Building markets, business capabilities and business ecology for MSMEs", "02 Rural revitalization through digital development", "03 Community resilience through digital technology", "Establishing a diverse, equitable, and inclusive culture and system", "Establishing fair and competitive remuneration with heartwarming benefits", "Offering abundant learning and development opportunities", "Creating a work environment conducive to improving employee health and vitality", "Philanthropic participation of all employees", "Technological innovations for social challenges", "Connecting ecological forces to empower charities", "Enhancing Community Inclusion and Resilience", "Enabling a Sustainable Digital Life"] 
+ 

@@ -1,0 +1,11 @@
+Header: ESG_overview 
+  Bank of America Corporation (BofA) is committed to assisting its clients in their transition towards net zero emissions before 2050, aligning its strategy accordingly. To achieve this goal, the organization has set milestone targets to support the Net Zero commitment. This strategy is applied to both the institution's core evaluation and decision-making tools and processes as well as specific sectors and activities.
+
+One of the critical components of BofA's Net Zero transition strategy includes managing climate-related risks. The financial institution has an Environmental and Social Risk Policy Framework, which outlines its processes for identifying, assessing, and managing these risks. This framework is integrated into the organization's overall risk management to ensure a holistic approach towards climate risk.
+
+Additionally, BofA's commitment to net zero emissions extends to its financing activities, operations, and supply chain. In recent years, the company has made significant strides towards this goal. For instance, it achieved carbon neutrality for its operations in 2019, one year earlier than anticipated. Furthermore, in 2020, it became a founding partner of the Rocky Mountain Institute’s Center for Climate-Aligned Finance and joined the Partnership for Carbon Accounting Financials as a core member. In the same year, it also released its first Task Force on Climate-related Financial Disclosures (TCFD) report.
+
+Moreover, in 2021, BofA announced that it would disclose the WEF International Business Council metrics in its Annual Report to shareholders and committed to net zero emissions by 2050 for its financing activities. The company has also made significant strides towards sustainable finance, committing $1.5 trillion by 2030 to this cause.
+
+Throughout these efforts, BofA continues to prioritize transparency and governance in its climate-related initiatives. This commitment aligns with the broader themes of good governance (climate-related), risk management (identification, measurement, monitoring, control, and assessment through scenario analysis), metrics and targets (environmental footprint and social impact, along with governance practices), sustainable finance, nature and biodiversity, governance, and financing activity metrics and targets. 
+ 

@@ -1,0 +1,19 @@
+Header: ESG_overview 
+  Coca-Cola Company (CCEP) is committed to reducing its environmental footprint and promoting sustainable business practices across various areas, including climate action and water conservation. The company has achieved a 7% decline in absolute emissions since 2015, with the aim of reaching a 25% science-based reduction target by 2030 (Document 42). In water efficiency, CCEP strives to reduce its water use ratio by 20% by 2030, currently boasting an impressive achievement of a water use ratio of 1.79 liters per liter of beverage in 2022 – significantly better than the industry average for carbonated soft drinks (Document 26). The company has also made strides in engaging its suppliers, with a 12% increase in climate data reported to CDP in 2022 and a rise in renewable electricity usage within its system (Document 8).
+
+In terms of human rights, labor practices, community engagement, and indigenous peoples' rights, CCEP has made various achievements. For instance, in Sri Lanka, the company responded to the economic crisis by introducing large returnable glass bottles ("Big Buddy Pack") as an affordable option for families (Document 36). Additionally, collaborations in Sweden, Hong Kong, and other regions have focused on reusable packaging solutions to reduce waste. The company also recognized several of its bottling partners for their water security strategies, achieving strong scores in the CDP Water Response (Document 28).
+
+CCEP continues to prioritize climate action, human rights, greenhouse gas emissions & waste reduction, sustainable agriculture, and water management. It has set ambitious goals for 100% regenerative water use across 175 facilities by 2030, improving the health of 60 watersheds, and returning a cumulative total of 2 trillion liters of water to nature and communities globally between 2021-2030 (Document 7). Through its various initiatives, CCEP continues to address climate challenges, protect human rights, minimize waste, and promote sustainable agriculture and water management.
+
+1. Climate
+2. Human Rights (labor practices, community engagement, indigenous peoples' rights)
+3. Greenhouse Gas Emissions & Waste
+4. Sustainable Agriculture
+5. Water
+6. CEO Message/Boards of Directors
+7. Giving Back to Our Communities
+8. Economic Empowerment
+9. PEOPLE & COMMUNITIES
+10. Packaging
+11. Reporting Frameworks & SDGs 
+ 

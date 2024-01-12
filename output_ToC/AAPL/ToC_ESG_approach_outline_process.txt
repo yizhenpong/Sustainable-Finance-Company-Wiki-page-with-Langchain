@@ -1,0 +1,18 @@
+Header: extracted_TOC 
+ 
+  {
+"Introduction": ["3", "Letter from Lisa Jackson", "4", "Report highlights"],
+"Our environmental strategy": ["5"],
+"Goals": [],
+"Climate Change": ["8", "Goals and progress", "9", "Our approach", "14", "Low-carbon design", "20", "Clean electricity", "26", "Direct emissions abatement", "27", "Carbon removal"],
+"Resources": ["32", "Goals and progress", "33", "Our approach", "34", "Materials", "48", "Water", "52", "Zero waste"],
+"Smarter Chemistry": ["57", "Goals and progress", "58", "Our approach", "59", "Mapping and engagement", "62", "Assessment and management", "64", "Innovation"],
+"Engagement and Advocacy": ["68", "Our approach", "68", "Listening", "69", "Achieving change together", "71", "Supporting communities"],
+"Appendix": ["76", "A: Environmental data", "85", "B: Corporate facilities energy supplement", "94", "C: Supplier Clean Energy Program supplement", "99", "D: Assurance and review statements", "108", "E: Environment, Health and Safety Policy", "110", "F: ISO 14001 certification", "112", "Report notes", "113", "End notes"]
+} 
+ Header: cleaned_headers 
+ 
+  ["Climate Change": ["Goals and progress", "Our approach", "Low-carbon design", "Clean electricity", "Direct emissions abatement", "Carbon removal"],
+ "Resources": ["Goals and progress", "Our approach", "Materials", "Water", "Zero waste"],
+ "Smarter Chemistry": ["Goals and progress", "Our approach", "Mapping and engagement", "Assessment and management", "Innovation"]] 
+ 

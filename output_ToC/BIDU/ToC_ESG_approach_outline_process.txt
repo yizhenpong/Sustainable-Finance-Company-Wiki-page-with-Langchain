@@ -1,0 +1,48 @@
+Header: extracted_TOC 
+ 
+  Here's the extracted table of contents with section names as keys and their corresponding page numbers as values:
+
+{
+"About This Report": 0,
+"Report Period": 3,
+"Basis of Preparation": 5,
+"Your Feedback": 81,
+"Forward-looking Statement": 93,
+"Message from the CEO": 95,
+"Nurturing Talent": {
+    "Improving Services": {
+        "Promoting Green Ideas": 6,
+        "Talent First": 11,
+        "Talent Protection": 18,
+        "Workplace Diversity": 35,
+        "Content Governance": 55,
+        "User Experience": 58,
+        "Technological Innovation": 64,
+        "Technological Empowerment": 72
+    }
+},
+"Enhancing Corporate Governance": {
+    "Building Trust": {
+        "ESG Management": 13,
+        "Board Governance": 15,
+        "Risk Governance": 15,
+        "Transparent Tax Affairs": 18,
+        "Business Ethics": 20,
+        "Supply Chain Management": 31,
+        "AI Ethics": 35,
+        "Security Management": 45,
+        "Security Guarantee": 50,
+        "Personal Information and Privacy Protection": 79,
+        "Data Governance and Algorithm Governance": 86
+    }
+},
+"Addressing Climate Change": {
+    "Green Operations": 22,
+    "Green Products and Services": 24,
+    "Digital Inclusion": 38
+}
+} 
+ Header: cleaned_headers 
+ 
+  ["Nurturing Talent": "Improving Services", "Enhancing Corporate Governance": "ESG Management", "Addressing Climate Change": "Green Operations", "Addressing Climate Change": "Green Products and Services"] 
+ 

@@ -310,18 +310,17 @@ if __name__ == '__main__':
     # run_wiki_gen_base("CCEP")
     # print(dh.get_all_companies()['Symbol'])
     for symbol in dh.get_all_companies()['Symbol']:
-        if symbol != "JNJ":
-            print(f"""
-                #====================================================== 
-                # RAG function has started for {symbol}
-                #====================================================== """)
+        print(f"""
+            #====================================================== 
+            # RAG function has started for {symbol}
+            #====================================================== """)
 
-            run_wiki_gen_base(symbol, ToCStatus=True)
+        run_wiki_gen_base(symbol, ToCStatus=True)
 
-            print(f"""
-                #====================================================== 
-                # RAG function has completed for {symbol}
-                #====================================================== """)
+        print(f"""
+            #====================================================== 
+            # RAG function has completed for {symbol}
+            #====================================================== """)
             
 
         

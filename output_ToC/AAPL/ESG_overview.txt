@@ -1,0 +1,13 @@
+Header: ESG_overview 
+  Apple is a technology company with a strong commitment to sustainable practices and reducing its environmental footprint. The company's Environmental Progress Report for 2023 outlines its efforts to address climate change, smarter chemistry, and resources. (1)
+
+In the area of climate change, Apple has continued to make significant progress in reducing its emissions. In 2022, the company avoided over 28 million metric tons of emissions across all scopes through initiatives like sourcing 100% renewable electricity for facilities and transitioning suppliers to renewable energy. Apple is aiming for net zero carbon emissions by 2030 and carbon neutrality by 2050. (6, 7)
+
+Regarding smarter chemistry, Apple has set goals to eliminate plastics from its packaging by 2025 and is working on developing intelligent disassembly technology to improve material recovery. (5, 8)
+
+When it comes to resources, Apple reported using 1,527 million gallons of water worldwide in occupied properties, with 679 million gallons of that being water discharge. The company also disposed of 15,086 metric tonnes of trash in landfill and 1,261 metric tonnes of hazardous waste. However, Apple also recycled 35,583 metric tonnes of material and composted 3,958 metric tonnes of material. (2)
+
+Additionally, Apple is taking steps to address water use in its manufacturing processes and aims to eliminate water use in production entirely by 2030. The company also aims to eliminate all other waste from its operations and products by the same year. (3)
+
+Apple's sustainable commitments and achievements are aligned with themes such as climate change, goals and progress, our approach, direct emissions abatement, carbon removal, clean electricity, materials, water, and zero waste. 
+ 

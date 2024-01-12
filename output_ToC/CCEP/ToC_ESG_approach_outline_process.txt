@@ -1,0 +1,47 @@
+Header: extracted_TOC 
+ 
+  {
+"CEO MESSAGE": 3,
+"EXECUTIVE SUMMARY": 6,
+"AGRICULTURE": 47,
+"CHAIRMAN & CEO MESSAGE": 3,
+"BOARD OF DIRECTORS": 5,
+"PORTFOLIO: BEVERAGES FOR ALL": 31,
+"WATER LEADERSHIP": 24,
+"PACKAGING": 36,
+"PEOPLE & COMMUNITIES": 51,
+"CLIMATE": 43,
+"ABOUT THIS REPORT": 69,
+"DATA APPENDIX": 70,
+"Financial and Portfolio Data": 71,
+"Packaging": 76,
+"Water": 77,
+"Greenhouse Gas Emissions & Waste": 78,
+"SCOPE OF THIS REPORT": 2,
+"OUR COMPANY": 12,
+"At a Glance": 13,
+"How We Operate": 14,
+"Innovation": 15,
+"Financial Highlights": 17,
+"Governance & Management": 18,
+"Priority Topics": 21,
+"Stakeholder Engagement & Partnerships": 22,
+"Sustainable Agriculture": 47,
+"GREAT BRANDS, BOLD EXPERIMENTATION": -,
+"Asia Pacific": 64,
+"Europe, Middle East & Africa": 65,
+"Latin America": 66,
+"North America": 67,
+"Global Ventures/Bottling Investments Group": 68,
+"Human Rights": 52,
+"Safety & Health": 55,
+"Diversity, Equity & Inclusion": 56,
+"Giving Back to Our Communities": 60,
+"Economic Empowerment": 62,
+"Operating Highlights": 63,
+"Reporting Frameworks & SDGs": 87
+} 
+ Header: cleaned_headers 
+ 
+  ["AGRICULTURE", "CEO MESSAGE", "BOARD OF DIRECTORS", "CLIMATE", "Human Rights", "PEOPLE & COMMUNITIES", "Water", "Packaging", "Greenhouse Gas Emissions & Waste", "Sustainable Agriculture", "Giving Back to Our Communities", "Economic Empowerment", "Reporting Frameworks & SDGs"] 
+ 
